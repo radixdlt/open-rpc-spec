@@ -137,3 +137,9 @@ dist/
 # Temporary folders
 tmp/
 temp/
+
+# IntelliJ IDEA
+.idea
+*.iws
+*.iml
+*.ipr
