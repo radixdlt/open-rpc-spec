@@ -61,7 +61,7 @@ jobs:
 
   publish-npm:
     runs-on: ubuntu-latest
-#    needs: version
+    needs: version
     permissions:
       contents: read
       packages: write
