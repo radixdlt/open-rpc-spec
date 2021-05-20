@@ -75,6 +75,7 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@radixdlt'
       - run: |
+          npm version
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
