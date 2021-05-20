@@ -5,6 +5,11 @@
 **Merged pull requests:**
 
 - fix release branch [\#2](https://github.com/radixdlt/open-rpc-spec/pull/2)
+
+## [1.0.2](https://github.com/radixdlt/open-rpc-spec/tree/1.0.2) (2021-05-20)
+
+**Merged pull requests:**
+
 - publish packages [\#1](https://github.com/radixdlt/open-rpc-spec/pull/1)
 
 ## [1.0.1](https://github.com/radixdlt/open-rpc-spec/tree/1.0.1) (2021-05-14)
