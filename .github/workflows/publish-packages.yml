@@ -45,7 +45,7 @@ jobs:
           ./mvnw -Dversioning.preferTags=true clean package
           cat pom.xml
           ls -l target
-          echo "./mvnw -Dversioning.preferTags=true deploy"
+          ./mvnw -Dversioning.preferTags=true deploy
       - name: Save Maven cache
         uses: skjolber/maven-cache-github-action@v1
         with:
