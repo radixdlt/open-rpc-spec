@@ -37,6 +37,7 @@ jobs:
         run: |
           export VERSIONING_UPDATE_POM=true
           git tag v0.1.0
+          git tag --list
           ./mvnw -Dversioning.preferTags=true clean package
           ls -l target
           echo "./mvnw -Dversioning.preferTags=true deploy"
