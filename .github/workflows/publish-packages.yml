@@ -6,29 +6,8 @@ on:
       - main
 
 jobs:
-  changelog:
-    name: Update changelog
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: update changelog
-        uses: heinrichreimer/github-changelog-generator-action@v2.2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issues: true
-          issuesWoLabels: true
-          pullRequests: true
-          prWoLabels: true
-          unreleased: true
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Update Changelog for PR
-          file_pattern: CHANGELOG.md
-
   version:
     name: Bump version and push tag
-    needs: changelog
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -96,3 +75,23 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
+  changelog:
+    name: Update changelog
+    needs: [publish-npm, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: update changelog
+        uses: heinrichreimer/github-changelog-generator-action@v2.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issues: true
+          issuesWoLabels: true
+          pullRequests: true
+          prWoLabels: true
+          unreleased: true
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Changelog for PR
+          file_pattern: CHANGELOG.md
