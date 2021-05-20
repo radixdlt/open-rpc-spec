@@ -6,29 +6,29 @@ on:
       - test-workflow
 
 jobs:
-  changelog:
-    name: Update changelog
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: update changelog
-        uses: heinrichreimer/github-changelog-generator-action@v2.2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issues: true
-          issuesWoLabels: true
-          pullRequests: true
-          prWoLabels: true
-          unreleased: true
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Update Changelog for PR
-          file_pattern: CHANGELOG.md
+#  changelog:
+#    name: Update changelog
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#      - name: update changelog
+#        uses: heinrichreimer/github-changelog-generator-action@v2.2
+#        with:
+#          token: ${{ secrets.GITHUB_TOKEN }}
+#          issues: true
+#          issuesWoLabels: true
+#          pullRequests: true
+#          prWoLabels: true
+#          unreleased: true
+#      - uses: stefanzweifel/git-auto-commit-action@v4
+#        with:
+#          commit_message: Update Changelog for PR
+#          file_pattern: CHANGELOG.md
 
   version:
     name: Bump version and push tag
-    needs: changelog
+#    needs: changelog
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -39,37 +39,37 @@ jobs:
           tag_prefix: ""
           release_branches: test-workflow
           github_token: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
-  build:
-    runs-on: ubuntu-latest
-    name: Build and publish maven packages
-    permissions:
-      contents: read
-      packages: write
-    needs: version
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Set up JDK 1.11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.11
-      - name: Restore Maven cache
-        uses: skjolber/maven-cache-github-action@v1
-        with:
-          step: restore
-      - name: Build
-        run: |
-          GIT_TAG=$(git tag --points-at HEAD --sort -version:refname | head -1 )
-          echo "GIT TAG $GIT_TAG"
-          #export VERSIONING_UPDATE_POM=true
-          ./mvnw -Dversioning.preferTags=true clean package deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Save Maven cache
-        uses: skjolber/maven-cache-github-action@v1
-        with:
-          step: save
+#  build:
+#    runs-on: ubuntu-latest
+#    name: Build and publish maven packages
+#    permissions:
+#      contents: read
+#      packages: write
+#    needs: version
+#    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#          fetch-depth: 0
+#      - name: Set up JDK 1.11
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: 1.11
+#      - name: Restore Maven cache
+#        uses: skjolber/maven-cache-github-action@v1
+#        with:
+#          step: restore
+#      - name: Build
+#        run: |
+#          GIT_TAG=$(git tag --points-at HEAD --sort -version:refname | head -1 )
+#          echo "GIT TAG $GIT_TAG"
+#          #export VERSIONING_UPDATE_POM=true
+#          ./mvnw -Dversioning.preferTags=true clean package deploy
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Save Maven cache
+#        uses: skjolber/maven-cache-github-action@v1
+#        with:
+#          step: save
   publish-npm:
     name: Publish npm packages
     runs-on: ubuntu-latest
@@ -88,7 +88,10 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@radixdlt'
-      - run: |
+      - name: Update package version and publish
+        run: |
+          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config --global user.name "$GITHUB_ACTOR"
           GIT_TAG=$(git tag --points-at HEAD --sort -version:refname | head -1 )
           echo "GIT TAG $GIT_TAG"
           npm version $GIT_TAG
