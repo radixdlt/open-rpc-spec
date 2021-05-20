@@ -1,6 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/radixdlt/open-rpc-spec/tree/HEAD)
+## [1.0.3](https://github.com/radixdlt/open-rpc-spec/tree/1.0.3) (2021-05-20)
+
+**Merged pull requests:**
+
+- Changelog order [\#4](https://github.com/radixdlt/open-rpc-spec/pull/4)
+
+## [1.0.2](https://github.com/radixdlt/open-rpc-spec/tree/1.0.2) (2021-05-20)
 
 **Merged pull requests:**
 
