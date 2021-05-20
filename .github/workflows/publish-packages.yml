@@ -19,7 +19,7 @@ jobs:
 #          github_token: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
   build:
     runs-on: ubuntu-latest
-    name: Gradle build
+    name: Publish mvn packages
 #    needs: version
     steps:
       - uses: actions/checkout@v2
@@ -38,11 +38,12 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-      - name: Build metrics exporter
+      - name: Build
         run: |
           git tag v0.1.0
-          ./mvnw -Dversioning.preferTags=true clean package deploy
+          ./mvnw -Dversioning.preferTags=true clean package
           ls -l build/libs
+          ./mvnw -Dversioning.preferTags=true deploy
       - name: Cleanup Gradle Cache
         # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
         # Restoring these files from a GitHub Actions cache might cause problems for future builds.
