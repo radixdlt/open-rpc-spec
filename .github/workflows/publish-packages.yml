@@ -46,6 +46,8 @@ jobs:
           cat pom.xml
           ls -l target
           ./mvnw -Dversioning.preferTags=true deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN
       - name: Save Maven cache
         uses: skjolber/maven-cache-github-action@v1
         with:
