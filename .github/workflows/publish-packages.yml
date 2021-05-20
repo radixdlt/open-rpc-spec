@@ -19,8 +19,11 @@ jobs:
 #          github_token: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
   build:
     runs-on: ubuntu-latest
-    name: Publish mvn packages
-#    needs: version
+    name: Publish mvn
+    permissions:
+      contents: read
+      packages: write
+    #    needs: version
     steps:
       - uses: actions/checkout@v2
         with:
@@ -35,10 +38,12 @@ jobs:
           step: restore
       - name: Build
         run: |
+          ls -l
           export VERSIONING_UPDATE_POM=true
           git tag v0.1.0
           git tag --list
           ./mvnw -Dversioning.preferTags=true clean package
+          cat pom.xml
           ls -l target
           echo "./mvnw -Dversioning.preferTags=true deploy"
       - name: Save Maven cache
