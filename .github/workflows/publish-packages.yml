@@ -71,6 +71,7 @@ jobs:
         with:
           step: save
   publish-npm:
+    name: Publish npm packages
     runs-on: ubuntu-latest
     needs: version
     permissions:
@@ -93,4 +94,4 @@ jobs:
           npm version $GIT_TAG
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
