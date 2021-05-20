@@ -114,4 +114,11 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/radixdlt/open-rpc-spec</url>
+        </repository>
+    </distributionManagement>
 </project>

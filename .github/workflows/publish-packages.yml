@@ -1,0 +1,81 @@
+name: publish-packages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  version:
+    name: Bump version and push tag
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Bump version and push tag
+        uses: hennejg/github-tag-action@v4.2.4
+        with:
+          default_bump: patch
+          tag_prefix: ""
+          release_branches: ci/publish-packages
+          github_token: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
+  build:
+    runs-on: ubuntu-latest
+    name: Build and publish maven packages
+    permissions:
+      contents: read
+      packages: write
+    needs: version
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up JDK 1.11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
+      - name: Restore Maven cache
+        uses: skjolber/maven-cache-github-action@v1
+        with:
+          step: restore
+      - name: Build
+        run: |
+          ls -l
+          export VERSIONING_UPDATE_POM=true
+          ./mvnw -Dversioning.preferTags=true clean package deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Save Maven cache
+        uses: skjolber/maven-cache-github-action@v1
+        with:
+          step: save
+
+  changelog:
+    name: Update changelog
+    runs-on: ubuntu-latest
+    needs: version
+    steps:
+      - name: update changelog
+        uses: heinrichreimer/github-changelog-generator-action@v2.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-npm:
+    runs-on: ubuntu-latest
+    needs: version
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@radixdlt'
+      - run: |
+          GIT_TAG=$(git tag --points-at HEAD --sort -version:refname | head -1 )
+          npm version $GIT_TAG
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
