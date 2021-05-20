@@ -16,7 +16,7 @@ jobs:
         with:
           default_bump: patch
           tag_prefix: ""
-          release_branches: ci/publish-packages
+          release_branches: main
           github_token: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
   build:
     runs-on: ubuntu-latest
