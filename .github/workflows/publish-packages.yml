@@ -18,26 +18,6 @@ jobs:
           tag_prefix: ""
           release_branches: main
           github_token: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
-  changelog:
-    name: Update changelog
-    needs: version
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: update changelog
-        uses: heinrichreimer/github-changelog-generator-action@v2.2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issues: true
-          issuesWoLabels: true
-          pullRequests: true
-          prWoLabels: true
-          unreleased: true
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Update Changelog for PR
-          file_pattern: CHANGELOG.md
   build:
     runs-on: ubuntu-latest
     name: Build and publish maven packages
@@ -95,3 +75,23 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
+  changelog:
+    name: Update changelog
+    needs: [publish-npm, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: update changelog
+        uses: heinrichreimer/github-changelog-generator-action@v2.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issues: true
+          issuesWoLabels: true
+          pullRequests: true
+          prWoLabels: true
+          unreleased: true
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Changelog for PR
+          file_pattern: CHANGELOG.md
