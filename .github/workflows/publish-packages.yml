@@ -60,7 +60,8 @@ jobs:
           step: restore
       - name: Build
         run: |
-          ls -l
+          GIT_TAG=$(git tag --points-at HEAD --sort -version:refname | head -1 )
+          echo "GIT TAG $GIT_TAG"
           export VERSIONING_UPDATE_POM=true
           ./mvnw -Dversioning.preferTags=true clean package deploy
         env:
@@ -77,6 +78,8 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v2
         with:
