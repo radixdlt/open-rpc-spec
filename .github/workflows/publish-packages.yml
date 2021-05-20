@@ -3,28 +3,28 @@ name: publish-packages
 on:
   push:
     branches:
-      - test-workflow
+      - main
 
 jobs:
-#  changelog:
-#    name: Update changelog
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v2
-#      - name: update changelog
-#        uses: heinrichreimer/github-changelog-generator-action@v2.2
-#        with:
-#          token: ${{ secrets.GITHUB_TOKEN }}
-#          issues: true
-#          issuesWoLabels: true
-#          pullRequests: true
-#          prWoLabels: true
-#          unreleased: true
-#      - uses: stefanzweifel/git-auto-commit-action@v4
-#        with:
-#          commit_message: Update Changelog for PR
-#          file_pattern: CHANGELOG.md
+  changelog:
+    name: Update changelog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: update changelog
+        uses: heinrichreimer/github-changelog-generator-action@v2.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issues: true
+          issuesWoLabels: true
+          pullRequests: true
+          prWoLabels: true
+          unreleased: true
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Changelog for PR
+          file_pattern: CHANGELOG.md
 
   version:
     name: Bump version and push tag
@@ -37,39 +37,39 @@ jobs:
         with:
           default_bump: patch
           tag_prefix: ""
-          release_branches: test-workflow
+          release_branches: main
           github_token: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
-#  build:
-#    runs-on: ubuntu-latest
-#    name: Build and publish maven packages
-#    permissions:
-#      contents: read
-#      packages: write
-#    needs: version
-#    steps:
-#      - uses: actions/checkout@v2
-#        with:
-#          fetch-depth: 0
-#      - name: Set up JDK 1.11
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.11
-#      - name: Restore Maven cache
-#        uses: skjolber/maven-cache-github-action@v1
-#        with:
-#          step: restore
-#      - name: Build
-#        run: |
-#          GIT_TAG=$(git tag --points-at HEAD --sort -version:refname | head -1 )
-#          echo "GIT TAG $GIT_TAG"
-#          #export VERSIONING_UPDATE_POM=true
-#          ./mvnw -Dversioning.preferTags=true clean package deploy
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      - name: Save Maven cache
-#        uses: skjolber/maven-cache-github-action@v1
-#        with:
-#          step: save
+  build:
+    runs-on: ubuntu-latest
+    name: Build and publish maven packages
+    permissions:
+      contents: read
+      packages: write
+    needs: version
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up JDK 1.11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
+      - name: Restore Maven cache
+        uses: skjolber/maven-cache-github-action@v1
+        with:
+          step: restore
+      - name: Build
+        run: |
+          GIT_TAG=$(git tag --points-at HEAD --sort -version:refname | head -1 )
+          echo "GIT TAG $GIT_TAG"
+          #export VERSIONING_UPDATE_POM=true
+          ./mvnw -Dversioning.preferTags=true clean package deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Save Maven cache
+        uses: skjolber/maven-cache-github-action@v1
+        with:
+          step: save
   publish-npm:
     name: Publish npm packages
     runs-on: ubuntu-latest
