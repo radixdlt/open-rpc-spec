@@ -6,17 +6,17 @@ on:
       - ci/publish-packages
 
 jobs:
-#  version:
-#    name: Bump version and push tag
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: Bump version and push tag
-#        uses: hennejg/github-tag-action@v4.2.4
-#        with:
-#          default_bump: patch
-#          release_branches: ci/publish-packages
-#          github_token: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
+  version:
+    name: Bump version and push tag
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Bump version and push tag
+        uses: hennejg/github-tag-action@v4.2.4
+        with:
+          default_bump: patch
+          release_branches: ci/publish-packages
+          github_token: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
 #  build:
 #    runs-on: ubuntu-latest
 #    name: Build and publish maven packages
