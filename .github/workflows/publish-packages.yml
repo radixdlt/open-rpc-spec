@@ -35,10 +35,11 @@ jobs:
           step: restore
       - name: Build
         run: |
+          export VERSIONING_UPDATE_POM=true
           git tag v0.1.0
           ./mvnw -Dversioning.preferTags=true clean package
           ls -l target
-          ./mvnw -Dversioning.preferTags=true deploy
+          echo "./mvnw -Dversioning.preferTags=true deploy"
       - name: Save Maven cache
         uses: skjolber/maven-cache-github-action@v1
         with:
