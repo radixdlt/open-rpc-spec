@@ -60,9 +60,7 @@ jobs:
           step: restore
       - name: Build
         run: |
-          GIT_TAG=$(git tag --points-at HEAD --sort -version:refname | head -1 )
-          echo "GIT TAG $GIT_TAG"
-          #export VERSIONING_UPDATE_POM=true
+          export VERSIONING_UPDATE_POM=true
           ./mvnw -Dversioning.preferTags=true clean package deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
