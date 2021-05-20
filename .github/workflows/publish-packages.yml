@@ -3,13 +3,15 @@ name: publish-packages
 on:
   push:
     branches:
-      - main
+      - test-workflow
 
 jobs:
   changelog:
     name: Update changelog
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: update changelog
         uses: heinrichreimer/github-changelog-generator-action@v2.2
         with:
@@ -35,7 +37,7 @@ jobs:
         with:
           default_bump: patch
           tag_prefix: ""
-          release_branches: main
+          release_branches: test-workflow
           github_token: ${{ secrets.RADIXBOT_GITHUB_REPO_PACKAGES_TOKEN }}
   build:
     runs-on: ubuntu-latest
@@ -84,6 +86,7 @@ jobs:
           scope: '@radixdlt'
       - run: |
           GIT_TAG=$(git tag --points-at HEAD --sort -version:refname | head -1 )
+          echo "GIT TAG $GIT_TAG"
           npm version $GIT_TAG
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
