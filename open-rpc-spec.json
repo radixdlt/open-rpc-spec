@@ -1202,7 +1202,26 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			"result": {
+				"name": "configurationResult",
+				"schema": {
+					"type": "object",
+					"properties": {
+						"endpoints": {
+							"type": "array",
+							"items": [
+								{
+									"type": "string"
+								}
+							]
+						}
+					},
+					"additionalProperties": false,
+					"required": [
+						"endpoints"
+					]
+				}
+			}
 		},
 		{
 			"name": "api.get_data",
@@ -1214,7 +1233,12 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			//TODO: finish it
+			"result": {
+				"name": "apiGetDataResult",
+				"schema": {
+				}
+			}
 		},
 		{
 			"name": "bft.get_configuration",
@@ -1226,7 +1250,12 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			//TODO: finish it
+			"result": {
+				"name": "apiGetDataResult",
+				"schema": {
+				}
+			}
 		},
 		{
 			"name": "bft.get_data",
@@ -1238,7 +1267,12 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			//TODO: finish it
+			"result": {
+				"name": "apiGetDataResult",
+				"schema": {
+				}
+			}
 		},
 		{
 			"name": "mempool.get_configuration",
@@ -1250,7 +1284,25 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			"result": {
+				"name": "mempoolConfigurationResult",
+				"schema": {
+					"type": "object",
+					"properties": {
+						"mempool": {
+							"type": "object",
+							"properties": {
+								"max_size": {
+									"type": "integer"
+								},
+								"throttle_ms": {
+									"type": "integer"
+								}
+							}
+						}
+					}
+				}
+			}
 		},
 		{
 			"name": "mempool.get_data",
@@ -1262,7 +1314,12 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			//TODO: finish it
+			"result": {
+				"name": "apiGetDataResult",
+				"schema": {
+				}
+			}
 		},
 		{
 			"name": "ledger.get_latest_proof",
@@ -1274,7 +1331,12 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			//TODO: finish it
+			"result": {
+				"name": "apiGetDataResult",
+				"schema": {
+				}
+			}
 		},
 		{
 			"name": "ledger.get_latest_epoch_proof",
@@ -1286,7 +1348,12 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			//TODO: finish it
+			"result": {
+				"name": "apiGetDataResult",
+				"schema": {
+				}
+			}
 		},
 		{
 			"name": "radix_engine.get_configuration",
@@ -1298,7 +1365,47 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			"result": {
+				"name": "radixEngineConfigurationResult",
+				"schema": {
+					"type": "object",
+					"properties": {
+						"radix_engine": {
+							"type": "object",
+							"properties": {
+								"min_validators": {
+									"type": "integer"
+								},
+								"max_validators": {
+									"type": "integer"
+								},
+								"max_txns_per_proposal": {
+									"type": "integer"
+								},
+								"forks": {
+									"type": "array",
+									"items": [
+										{
+											"type": "object",
+											"properties": {
+												"name": {
+													"type": "string"
+												},
+												"ceiling_view": {
+													"type": "integer"
+												},
+												"epoch": {
+													"type": "integer"
+												}
+											}
+										}
+									]
+								}
+							}
+						}
+					}
+				}
+			}
 		},
 		{
 			"name": "radix_engine.get_data",
@@ -1310,7 +1417,12 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			//TODO: finish it
+			"result": {
+				"name": "apiGetDataResult",
+				"schema": {
+				}
+			}
 		},
 		{
 			"name": "sync.get_configuration",
@@ -1322,7 +1434,12 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			//TODO: finish it
+			"result": {
+				"name": "apiGetDataResult",
+				"schema": {
+				}
+			}
 		},
 		{
 			"name": "sync.get_data",
@@ -1334,7 +1451,12 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			//TODO: finish it
+			"result": {
+				"name": "apiGetDataResult",
+				"schema": {
+				}
+			}
 		},
 		{
 			"name": "networking.get_configuration",
@@ -1346,7 +1468,12 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			//TODO: finish it
+			"result": {
+				"name": "apiGetDataResult",
+				"schema": {
+				}
+			}
 		},
 		{
 			"name": "networking.get_peers",
@@ -1358,7 +1485,25 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			"result": {
+				"name": "getPeersResult",
+				"schema": {
+					"type": "array",
+					"items": [
+						{
+							"type": "object",
+							"properties": {
+								"address": {
+									"$ref": "#/components/schemas/validatorAddress"
+								},
+								"endpoint": {
+									"$ref": "#/components/schemas/hostPort"
+								}
+							}
+						}
+					]
+				}
+			}
 		},
 		{
 			"name": "networking.get_data",
@@ -1370,7 +1515,12 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			//TODO: finish it
+			"result": {
+				"name": "apiGetDataResult",
+				"schema": {
+				}
+			}
 		},
 		{
 			"name": "checkpoints.get_checkpoints",
@@ -1382,7 +1532,12 @@
 				}
 			],
 			"params": [],
-			"result": {}
+			//TODO: finish it
+			"result": {
+				"name": "apiGetDataResult",
+				"schema": {
+				}
+			}
 		}
 	],
 	"components": {
@@ -1777,6 +1932,10 @@
 			"amount": {
 				"type": "string",
 				"pattern": "^[0-9]+$"
+			},
+			"hostPort": {
+				"type": "string",
+				"pattern": "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9]):[0-9]+$"
 			},
 			"rri": {
 				"type": "string",
