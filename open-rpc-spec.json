@@ -1479,6 +1479,214 @@
 							"type": {
 								"type": "string",
 								"enum": [
+									"BurnTokens"
+								]
+							},
+							"from": {
+								"$ref": "#/components/schemas/address"
+							},
+							"rri": {
+								"$ref": "#/components/schemas/rri"
+							},
+							"amount": {
+								"$ref": "#/components/schemas/amount"
+							}
+						},
+						"required": [
+							"type",
+							"from",
+							"rri",
+							"amount"
+						],
+						"additionalProperties": false
+					},
+					{
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string",
+								"enum": [
+									"MintTokens"
+								]
+							},
+							"to": {
+								"$ref": "#/components/schemas/address"
+							},
+							"rri": {
+								"$ref": "#/components/schemas/rri"
+							},
+							"amount": {
+								"$ref": "#/components/schemas/amount"
+							}
+						},
+						"required": [
+							"type",
+							"to",
+							"rri",
+							"amount"
+						],
+						"additionalProperties": false
+					},
+					{
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string",
+								"enum": [
+									"RegisterValidator"
+								]
+							},
+							"validator": {
+								"$ref": "#/components/schemas/validatorAddress"
+							},
+							"name": {
+								"type": "string"
+							},
+							"url": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"type",
+							"validator"
+						],
+						"additionalProperties": false
+					},
+					{
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string",
+								"enum": [
+									"UnregisterValidator"
+								]
+							},
+							"validator": {
+								"$ref": "#/components/schemas/validatorAddress"
+							},
+							"name": {
+								"type": "string"
+							},
+							"url": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"type",
+							"validator"
+						],
+						"additionalProperties": false
+					},
+					{
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string",
+								"enum": [
+									"UpdateValidator"
+								]
+							},
+							"validator": {
+								"$ref": "#/components/schemas/validatorAddress"
+							},
+							"name": {
+								"type": "string"
+							},
+							"url": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"type",
+							"validator"
+						],
+						"additionalProperties": false
+					},
+					{
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string",
+								"enum": [
+									"CreateFixedSupplyToken"
+								]
+							},
+							"from": {
+								"$ref": "#/components/schemas/address"
+							},
+							"rri": {
+								"$ref": "#/components/schemas/rri"
+							},
+							"symbol": {
+								"type": "string"
+							},
+							"name": {
+								"type": "string"
+							},
+							"description": {
+								"type": "string"
+							},
+							"iconUrl": {
+								"type": "string"
+							},
+							"tokenUrl": {
+								"type": "string"
+							},
+							"supply": {
+								"$ref": "#/components/schemas/amount"
+							}
+						},
+						"required": [
+							"type",
+							"from",
+							"rri",
+							"symbol",
+							"name",
+							"description",
+							"iconUrl",
+							"tokenUrl",
+							"supply"
+						],
+						"additionalProperties": false
+					},
+					{
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string",
+								"enum": [
+									"CreateMutableSupplyToken"
+								]
+							},
+							"symbol": {
+								"type": "string"
+							},
+							"name": {
+								"type": "string"
+							},
+							"description": {
+								"type": "string"
+							},
+							"iconUrl": {
+								"type": "string"
+							},
+							"tokenUrl": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"type",
+							"symbol",
+							"name"
+						],
+						"additionalProperties": false
+					},
+					{
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string",
+								"enum": [
 									"Other"
 								]
 							}
