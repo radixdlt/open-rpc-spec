@@ -529,7 +529,7 @@
                     "name": "cursor",
                     "required": false,
                     "schema": {
-                        "type": "integer"
+                        "type": "string"
                     }
                 }
             ],
