@@ -2,32 +2,18 @@
     "openrpc": "1.0.0-rc1",
     "info": {
         "title": "Radix Core JSON-RPC API",
-        "version": "1.0.0"
+        "version": "2.0.0-beta"
     },
     "methods": [
         {
-            "name": "radix.networkId",
-            "summary": "Get the network id, a number that uniquely identifies the network. This network id must match the one used to derive addresses.",
-            "params": [],
-            "result": {
-                "name": "networkId",
-                "schema": {
-                    "type": "object",
-                    "properties": {
-                        "networkId": {
-                            "$ref": "#/components/schemas/networkId"
-                        }
-                    },
-                    "required": [
-                        "networkId"
-                    ],
-                    "additionalProperties": false
-                }
-            }
-        },
-        {
-            "name": "radix.nativeToken",
+            "name": "tokens.get_native_token",
             "summary": "Returns information about the native token of the network.",
+            "servers": [
+                {
+                    "name": "archive",
+                    "url":"http://./archive"
+                }
+            ],
             "params": [],
             "result": {
                 "$ref": "#/components/responses/tokenInfo"
@@ -54,8 +40,14 @@
             ]
         },
         {
-            "name": "radix.tokenInfo",
+            "name": "tokens.get_info",
             "summary": "Return token information on the provided RRI.",
+            "servers": [
+                {
+                    "name": "archive",
+                    "url":"http://./archive"
+                }
+            ],
             "params": [
                 {
                     "name": "rri",
@@ -90,8 +82,14 @@
             ]
         },
         {
-            "name": "radix.tokenBalances",
+            "name": "account.get_balances",
             "summary": "Get the token balances for an address.",
+            "servers": [
+                {
+                    "name": "archive",
+                    "url":"http://./archive"
+                }
+            ],
             "params": [
                 {
                     "name": "address",
@@ -158,8 +156,14 @@
             ]
         },
         {
-            "name": "radix.transactionHistory",
+            "name": "account.get_transaction_history",
             "summary": "Get the paginated transaction history for an address.",
+            "servers": [
+                {
+                    "name": "archive",
+                    "url":"http://./archive"
+                }
+            ],
             "params": [
                 {
                     "name": "address",
@@ -252,66 +256,14 @@
             ]
         },
         {
-            "name": "radix.lookupTransaction",
-            "summary": "Get a transaction from its txID.",
-            "params": [
+            "name": "account.get_stake_positions",
+            "summary": "Get stakes that have not been requested to be unstaked.",
+            "servers": [
                 {
-                    "name": "txID",
-                    "required": true,
-                    "schema": {
-                        "$ref": "#/components/schemas/txID"
-                    }
+                    "name": "archive",
+                    "url":"http://./archive"
                 }
             ],
-            "result": {
-                "name": "transaction",
-                "schema": {
-                    "$ref": "#/components/schemas/transaction"
-                }
-            },
-            "examples": [
-                {
-                    "name": "lookupTransactionExamples",
-                    "params": [],
-                    "result": {
-                        "name": "lookupTransactionExample",
-                        "value": {
-                            "txID": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
-                            "sentAt": "1995-12-17T03:24:00",
-                            "fee": "100",
-                            "message": "Example message",
-                            "actions": [
-                                {
-                                    "type": "TokenTransfer",
-                                    "from": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
-                                    "to": "brx1qsp0mejfswrmcy5xf9up2ve7zez7w2th0fw4ne8js0u0q22vya7kg8getv7av",
-                                    "amount": "100",
-                                    "rri": "xrd_rb1qya85pwq"
-                                },
-                                {
-                                    "type": "StakeTokens",
-                                    "from": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
-                                    "validator": "vb1qvx0emaq0tua6md7wu9c047mm5krrwnlfl8c7ws3jm2s9uf4vxcyvrwrazy",
-                                    "amount": "100"
-                                },
-                                {
-                                    "type": "UnstakeTokens",
-                                    "from": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
-                                    "validator": "vb1qvx0emaq0tua6md7wu9c047mm5krrwnlfl8c7ws3jm2s9uf4vxcyvrwrazy",
-                                    "amount": "100"
-                                },
-                                {
-                                    "type": "Other"
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "radix.stakePositions",
-            "summary": "Get stakes that have not been requested to be unstaked.",
             "params": [
                 {
                     "name": "address",
@@ -362,8 +314,14 @@
             ]
         },
         {
-            "name": "radix.unstakePositions",
+            "name": "account.get_unstake_positions",
             "summary": "Get unstake history for an address.",
+            "servers": [
+                {
+                    "name": "archive",
+                    "url":"http://./archive"
+                }
+            ],
             "params": [
                 {
                     "name": "address",
@@ -424,8 +382,78 @@
             ]
         },
         {
-            "name": "radix.statusOfTransaction",
+            "name": "transactions.lookup_transaction",
+            "summary": "Get a transaction from its txID.",
+            "servers": [
+                {
+                    "name": "archive",
+                    "url":"http://./archive"
+                }
+            ],
+            "params": [
+                {
+                    "name": "txID",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/components/schemas/txID"
+                    }
+                }
+            ],
+            "result": {
+                "name": "transaction",
+                "schema": {
+                    "$ref": "#/components/schemas/transaction"
+                }
+            },
+            "examples": [
+                {
+                    "name": "lookupTransactionExamples",
+                    "params": [],
+                    "result": {
+                        "name": "lookupTransactionExample",
+                        "value": {
+                            "txID": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+                            "sentAt": "1995-12-17T03:24:00",
+                            "fee": "100",
+                            "message": "Example message",
+                            "actions": [
+                                {
+                                    "type": "TokenTransfer",
+                                    "from": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
+                                    "to": "brx1qsp0mejfswrmcy5xf9up2ve7zez7w2th0fw4ne8js0u0q22vya7kg8getv7av",
+                                    "amount": "100",
+                                    "rri": "xrd_rb1qya85pwq"
+                                },
+                                {
+                                    "type": "StakeTokens",
+                                    "from": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
+                                    "validator": "vb1qvx0emaq0tua6md7wu9c047mm5krrwnlfl8c7ws3jm2s9uf4vxcyvrwrazy",
+                                    "amount": "100"
+                                },
+                                {
+                                    "type": "UnstakeTokens",
+                                    "from": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
+                                    "validator": "vb1qvx0emaq0tua6md7wu9c047mm5krrwnlfl8c7ws3jm2s9uf4vxcyvrwrazy",
+                                    "amount": "100"
+                                },
+                                {
+                                    "type": "Other"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "transactions.get_transaction_status",
             "summary": "Returns the status of a transaction.",
+            "servers": [
+                {
+                    "name": "archive",
+                    "url":"http://./archive"
+                }
+            ],
             "params": [
                 {
                     "name": "txID",
@@ -480,50 +508,14 @@
             ]
         },
         {
-            "name": "radix.networkTransactionThroughput",
-            "summary": "Returns the average transaction per second in the network.",
-            "params": [],
-            "result": {
-                "name": "networkTransactionThroughput",
-                "schema": {
-                    "type": "object",
-                    "properties": {
-                        "tps": {
-                            "type": "integer",
-                            "minimum": 0
-                        }
-                    },
-                    "additionalProperties": false,
-                    "required": [
-                        "tps"
-                    ]
-                }
-            }
-        },
-        {
-            "name": "radix.networkTransactionDemand",
-            "summary": "Average transactions submitted to the mempool per second.",
-            "params": [],
-            "result": {
-                "name": "networkTransactionDemand",
-                "schema": {
-                    "type": "object",
-                    "properties": {
-                        "tps": {
-                            "type": "integer",
-                            "minimum": 0
-                        }
-                    },
-                    "additionalProperties": false,
-                    "required": [
-                        "tps"
-                    ]
-                }
-            }
-        },
-        {
-            "name": "radix.validators",
+            "name": "validators.get_next_epoch_set",
             "summary": "Get a paginated validator list, ordered by XRD staked descending.",
+            "servers": [
+                {
+                    "name": "archive",
+                    "url":"http://./archive"
+                }
+            ],
             "params": [
                 {
                     "name": "size",
@@ -537,7 +529,7 @@
                     "name": "cursor",
                     "required": false,
                     "schema": {
-                        "type": "integer"
+                        "type": "string"
                     }
                 }
             ],
@@ -588,8 +580,14 @@
             ]
         },
         {
-            "name": "radix.lookupValidator",
+            "name": "validators.lookup_validator",
             "summary": "Lookup a single validator by its validator address.",
+            "servers": [
+                {
+                    "name": "archive",
+                    "url":"http://./archive"
+                }
+            ],
             "params": [
                 {
                     "name": "validatorAddress",
@@ -625,8 +623,94 @@
             ]
         },
         {
-            "name": "radix.buildTransaction",
+            "name": "network.get_id",
+            "summary": "Get the network id, a number that uniquely identifies the network. This network id must match the one used to derive addresses.",
+            "servers": [
+                {
+                    "name": "archive",
+                    "url":"http://./archive"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "networkId",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "networkId": {
+                            "$ref": "#/components/schemas/networkId"
+                        }
+                    },
+                    "required": [
+                        "networkId"
+                    ],
+                    "additionalProperties": false
+                }
+            }
+        },
+        {
+            "name": "network.get_throughput",
+            "summary": "Returns the average number of transaction per second committed to the ledger.",
+            "servers": [
+                {
+                    "name": "archive",
+                    "url":"http://./archive"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "networkTransactionThroughput",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "tps": {
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "tps"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "network.get_demand",
+            "summary": "Average number of transactions submitted to the mempool per second.",
+            "servers": [
+                {
+                    "name": "archive",
+                    "url":"http://./archive"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "networkTransactionDemand",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "tps": {
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "tps"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "construction.build_transaction",
             "summary": "Get an unsigned transaction.",
+            "servers": [
+                {
+                    "name": "construction",
+                    "url":"http://./construction"
+                }
+            ],
             "params": [
                 {
                     "name": "actions",
@@ -762,8 +846,14 @@
             ]
         },
         {
-            "name": "radix.finalizeTransaction",
+            "name": "construction.finalize_transaction",
             "summary": "Finalizes a signed transaction before submitting it.",
+            "servers": [
+                {
+                    "name": "construction",
+                    "url":"http://./construction"
+                }
+            ],
             "params": [
                 {
                     "name": "transaction",
@@ -812,8 +902,14 @@
             }
         },
         {
-            "name": "radix.submitTransaction",
+            "name": "construction.submit_transaction",
             "summary": "Submits a transaction to be dispatched to Radix network.",
+            "servers": [
+                {
+                    "name": "construction",
+                    "url":"http://./construction"
+                }
+            ],
             "params": [
                 {
                     "name": "transaction",
@@ -874,6 +970,1127 @@
                     "message": "SUBMISSION_FAILURE"
                 }
             ]
+        },
+        {
+            "name": "account.get_info",
+            "summary": "Your account's address and balances.",
+            "servers": [
+                {
+                    "name": "account",
+                    "url":"http://./account"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "accountGetInfoResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "address": {
+                            "$ref": "#/components/schemas/validatorAddress"
+                        },
+                        "balance": {
+                            "type": "object",
+                            "properties": {
+                                "tokens": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "rri": {
+                                                    "$ref": "#/components/schemas/rri"
+                                                },
+                                                "amount": {
+                                                    "$ref": "#/components/schemas/amount"
+                                                }
+                                            },
+                                            "additionalProperties": false,
+                                            "required": [
+                                                "rri",
+                                                "amount"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "stakes": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "delegate": {
+                                                    "$ref": "#/components/schemas/validatorAddress"
+                                                },
+                                                "amount": {
+                                                    "$ref": "#/components/schemas/amount"
+                                                }
+                                            },
+                                            "additionalProperties": false,
+                                            "required": [
+                                                "delegate",
+                                                "amount"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "address",
+                        "balance"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "account.submit_transaction_single_step",
+            "summary": "One step transaction submission. Resulting transaction is signed with nodes' private key",
+            "servers": [
+                {
+                    "name": "account",
+                    "url":"http://./account"
+                }
+            ],
+            "params": [
+                {
+                    "name": "actions",
+                    "required": true,
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/actions"
+                        }
+                    }
+                },
+                {
+                    "name": "message",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "result": {
+                "name": "submissionResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "txID": {
+                            "$ref": "#/components/schemas/txID"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "txID"
+                    ]
+                }
+            },
+            "errors": [
+                {
+                    "code": 1300,
+                    "message": "MALFORMED_TX"
+                },
+                {
+                    "code": 1301,
+                    "message": "INSUFFICIENT_FUNDS"
+                },
+                {
+                    "code": 1302,
+                    "message": "NOT_PERMITTED"
+                },
+                {
+                    "code": 1303,
+                    "message": "ADDRESS_IS_MISSING"
+                },
+                {
+                    "code": 1304,
+                    "message": "NOT_A_SYSTEM"
+                },
+                {
+                    "code": 1305,
+                    "message": "RRI_NOT_AVAILABLE"
+                },
+                {
+                    "code": 1306,
+                    "message": "ALREADY_A_VALIDATOR"
+                },
+                {
+                    "code": 1307,
+                    "message": "INVALID_STATE"
+                },
+                {
+                    "code": 1308,
+                    "message": "NO_SYSTEM_PARTICLE"
+                },
+                {
+                    "code": 1309,
+                    "message": "NOT_ENOUGH_STAKED"
+                },
+                {
+                    "code": 1310,
+                    "message": "NEXT_VIEW_LE_CURRENT"
+                },
+                {
+                    "code": 1311,
+                    "message": "ALREADY_UNREGISTERED"
+                },
+                {
+                    "code": 1312,
+                    "message": "INSUFFICIENT_FUNDS_FOR_FEE"
+                },
+                {
+                    "code": 1313,
+                    "message": "DIFFERENT_SOURCE_ADDRESSES"
+                },
+                {
+                    "code": 1314,
+                    "message": "INVALID_ACTION"
+                },
+                {
+                    "code": 1315,
+                    "message": "INVALID_ACTION_TYPE"
+                },
+                {
+                    "code": 1316,
+                    "message": "INVALID_RRI"
+                },
+                {
+                    "code": 1317,
+                    "message": "INVALID_ADDRESS"
+                },
+                {
+                    "code": 1318,
+                    "message": "INVALID_VALIDATOR_ADDRESS"
+                },
+                {
+                    "code": 1319,
+                    "message": "INVALID_AMOUNT"
+                },
+                {
+                    "code": 1500,
+                    "message": "SUBMISSION_FAILURE"
+                }
+            ]
+        },
+        {
+            "name": "api.get_configuration",
+            "summary": "Get active configuration parameters for api",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "configurationResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "endpoints": {
+                            "type": "array",
+                            "items": [
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "endpoints"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "api.get_data",
+            "summary": "Get data for api",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "apiDataResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "elapsed": {
+                            "type": "object",
+                            "properties": {
+                                "apidb": {
+                                    "type": "object",
+                                    "properties": {
+                                        "balance": {
+                                            "type": "object",
+                                            "properties": {
+                                                "read": {
+                                                    "type": "integer"
+                                                },
+                                                "write": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "flush": {
+                                            "type": "object",
+                                            "properties": {
+                                                "time": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "transaction": {
+                                            "type": "object",
+                                            "properties": {
+                                                "read": {
+                                                    "type": "integer"
+                                                },
+                                                "write": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "token": {
+                                            "type": "object",
+                                            "properties": {
+                                                "read": {
+                                                    "type": "integer"
+                                                },
+                                                "write": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "count": {
+                            "type": "object",
+                            "properties": {
+                                "apidb": {
+                                    "type": "object",
+                                    "properties": {
+                                        "flush": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "balance": {
+                                            "type": "object",
+                                            "properties": {
+                                                "total": {
+                                                    "type": "integer"
+                                                },
+                                                "read": {
+                                                    "type": "integer"
+                                                },
+                                                "bytes": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "read": {
+                                                            "type": "integer"
+                                                        },
+                                                        "write": {
+                                                            "type": "integer"
+                                                        }
+                                                    }
+                                                },
+                                                "write": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "queue": {
+                                            "type": "object",
+                                            "properties": {
+                                                "size": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "transaction": {
+                                            "type": "object",
+                                            "properties": {
+                                                "total": {
+                                                    "type": "integer"
+                                                },
+                                                "read": {
+                                                    "type": "integer"
+                                                },
+                                                "bytes": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "read": {
+                                                            "type": "integer"
+                                                        },
+                                                        "write": {
+                                                            "type": "integer"
+                                                        }
+                                                    }
+                                                },
+                                                "write": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "token": {
+                                            "type": "object",
+                                            "properties": {
+                                                "total": {
+                                                    "type": "integer"
+                                                },
+                                                "read": {
+                                                    "type": "integer"
+                                                },
+                                                "bytes": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "read": {
+                                                            "type": "integer"
+                                                        },
+                                                        "write": {
+                                                            "type": "integer"
+                                                        }
+                                                    }
+                                                },
+                                                "write": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "bft.get_configuration",
+            "summary": "Get active configuration parameters for consensus",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "bftConfigurationResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "consensus": {
+                            "type": "object",
+                            "properties": {
+                                "pacemaker_timeout": {
+                                    "type": "integer"
+                                },
+                                "bft_sync_patience_ms": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "bft.get_data",
+            "summary": "Get data for consensus",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "bftDataResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "bft": {
+                            "type": "object",
+                            "properties": {
+                                "state_version": {
+                                    "type": "integer"
+                                },
+                                "vote_quorums": {
+                                    "type": "integer"
+                                },
+                                "rejected": {
+                                    "type": "integer"
+                                },
+                                "vertex_store_rebuilds": {
+                                    "type": "integer"
+                                },
+                                "vertex_store_forks": {
+                                    "type": "integer"
+                                },
+                                "sync": {
+                                    "type": "object",
+                                    "properties": {
+                                        "request_timeouts": {
+                                            "type": "integer"
+                                        },
+                                        "requests_sent": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "timeout": {
+                                    "type": "integer"
+                                },
+                                "vertex_store_size": {
+                                    "type": "integer"
+                                },
+                                "processed": {
+                                    "type": "integer"
+                                },
+                                "consensus_events": {
+                                    "type": "integer"
+                                },
+                                "indirect_parent": {
+                                    "type": "integer"
+                                },
+                                "proposals_made": {
+                                    "type": "integer"
+                                },
+                                "timed_out_views": {
+                                    "type": "integer"
+                                },
+                                "timeout_quorums": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "mempool.get_configuration",
+            "summary": "Get active configuration parameters for mempool",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "mempoolConfigurationResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "mempool": {
+                            "type": "object",
+                            "properties": {
+                                "max_size": {
+                                    "type": "integer"
+                                },
+                                "throttle_ms": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "mempool.get_data",
+            "summary": "Get data for mempool",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "mempoolDataResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "mempool": {
+                            "type": "object",
+                            "properties": {
+                                "maxcount": {
+                                    "type": "integer"
+                                },
+                                "relayer_sent_count": {
+                                    "type": "integer"
+                                },
+                                "count": {
+                                    "type": "integer"
+                                },
+                                "add_success": {
+                                    "type": "integer"
+                                },
+                                "proposed_transaction": {
+                                    "type": "integer"
+                                },
+                                "errors": {
+                                    "type": "object",
+                                    "properties": {
+                                        "other": {
+                                            "type": "integer"
+                                        },
+                                        "hook": {
+                                            "type": "integer"
+                                        },
+                                        "conflict": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "ledger.get_latest_proof",
+            "summary": "Get the latest known ledger proof",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "ledgerProofResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "opaque": {
+                            "type": "string"
+                        },
+                        "sigs": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "signature": {
+                                        "type": "string"
+                                    },
+                                    "timestamp": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        },
+                        "header": {
+                            "type": "object",
+                            "properties": {
+                                "view": {
+                                    "type": "integer"
+                                },
+                                "epoch": {
+                                    "type": "integer"
+                                },
+                                "accumulator": {
+                                    "type": "string"
+                                },
+                                "version": {
+                                    "type": "integer"
+                                },
+                                "timestamp": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "ledger.get_latest_epoch_proof",
+            "summary": "Get the latest known ledger epoch proof",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "ledgerProofResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "opaque": {
+                            "type": "string"
+                        },
+                        "sigs": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "signature": {
+                                        "type": "string"
+                                    },
+                                    "timestamp": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        },
+                        "header": {
+                            "type": "object",
+                            "properties": {
+                                "view": {
+                                    "type": "integer"
+                                },
+                                "epoch": {
+                                    "type": "integer"
+                                },
+                                "accumulator": {
+                                    "type": "string"
+                                },
+                                "version": {
+                                    "type": "integer"
+                                },
+                                "timestamp": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "radix_engine.get_configuration",
+            "summary": "Get active configuration parameters for radix engine",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "radixEngineConfigurationResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "radix_engine": {
+                            "type": "object",
+                            "properties": {
+                                "forks": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "epoch": {
+                                                "type": "integer"
+                                            },
+                                            "ceiling_view": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                "max_validators": {
+                                    "type": "integer"
+                                },
+                                "min_validators": {
+                                    "type": "integer"
+                                },
+                                "max_txns_per_proposal": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "radix_engine.get_data",
+            "summary": "Get data for radix engine",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "radixEngineDataResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "radix_engine": {
+                            "type": "object",
+                            "properties": {
+                                "invalid_proposed_commands": {
+                                    "type": "integer"
+                                },
+                                "system_transactions": {
+                                    "type": "integer"
+                                },
+                                "user_transactions": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "sync.get_configuration",
+            "summary": "Get active configuration parameters for sync",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "syncConfigurationResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "max_ledger_updates_rate": {
+                            "type": "number"
+                        },
+                        "request_timeout": {
+                            "type": "integer"
+                        },
+                        "sync_check_interval": {
+                            "type": "integer"
+                        },
+                        "sync_check_max_peers": {
+                            "type": "integer"
+                        },
+                        "ledger_status_update_max_peers_to_notify": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "sync.get_data",
+            "summary": "Get data for sync",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "syncDataResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "sync": {
+                            "type": "object",
+                            "properties": {
+                                "processed": {
+                                    "type": "integer"
+                                },
+                                "target_state_version": {
+                                    "type": "integer"
+                                },
+                                "remote_requests_processed": {
+                                    "type": "integer"
+                                },
+                                "invalid_commands_received": {
+                                    "type": "integer"
+                                },
+                                "last_read_millis": {
+                                    "type": "integer"
+                                },
+                                "target_current_diff": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "networking.get_configuration",
+            "summary": "Get active configuration parameters for networking",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "syncConfigurationResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "address": {
+                            "type": "string"
+                        },
+                        "listen_port": {
+                            "type": "integer"
+                        },
+                        "broadcast_port": {
+                            "type": "integer"
+                        },
+                        "priority": {
+                            "type": "integer"
+                        },
+                        "message_buffer_size": {
+                            "type": "integer"
+                        },
+                        "max_in_channels": {
+                            "type": "integer"
+                        },
+                        "max_out_channels": {
+                            "type": "integer"
+                        },
+                        "debug_data": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "networking.get_peers",
+            "summary": "Get information about known peer nodes",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "getPeersResult",
+                "schema": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "address": {
+                                    "$ref": "#/components/schemas/validatorAddress"
+                                },
+                                "endpoint": {
+                                    "$ref": "#/components/schemas/hostPort"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "networking.get_data",
+            "summary": "Get data for networking",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "networkingDataResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "messages": {
+                            "type": "object",
+                            "properties": {
+                                "inbound": {
+                                    "type": "object",
+                                    "properties": {
+                                        "processed": {
+                                            "type": "integer"
+                                        },
+                                        "discarded": {
+                                            "type": "integer"
+                                        },
+                                        "badsignature": {
+                                            "type": "integer"
+                                        },
+                                        "received": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "outbound": {
+                                    "type": "object",
+                                    "properties": {
+                                        "processed": {
+                                            "type": "integer"
+                                        },
+                                        "aborted": {
+                                            "type": "integer"
+                                        },
+                                        "pending": {
+                                            "type": "integer"
+                                        },
+                                        "sent": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "networking": {
+                            "type": "object",
+                            "properties": {
+                                "udp": {
+                                    "type": "object",
+                                    "properties": {
+                                        "dropped_messages": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "tcp": {
+                                    "type": "object",
+                                    "properties": {
+                                        "out_opened": {
+                                            "type": "integer"
+                                        },
+                                        "dropped_messages": {
+                                            "type": "integer"
+                                        },
+                                        "in_opened": {
+                                            "type": "integer"
+                                        },
+                                        "closed": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "received_bytes": {
+                                    "type": "integer"
+                                },
+                                "sent_bytes": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "checkpoints.get_checkpoints",
+            "summary": "Get genesis txn and proof,",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "checkpointsResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "txn": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "proof": {
+                            "type": "object",
+                            "properties": {
+                                "opaque": {
+                                    "type": "string"
+                                },
+                                "sigs": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "address": {
+                                                "type": "string"
+                                            },
+                                            "signature": {
+                                                "type": "string"
+                                            },
+                                            "timestamp": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                "header": {
+                                    "type": "object",
+                                    "properties": {
+                                        "view": {
+                                            "type": "integer"
+                                        },
+                                        "nextValidators": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "stake": {
+                                                        "type": "string"
+                                                    },
+                                                    "address": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "epoch": {
+                                            "type": "integer"
+                                        },
+                                        "accumulator": {
+                                            "type": "string"
+                                        },
+                                        "version": {
+                                            "type": "integer"
+                                        },
+                                        "timestamp": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     ],
     "components": {
@@ -961,6 +2178,214 @@
                             "from",
                             "validator",
                             "amount"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "BurnTokens"
+                                ]
+                            },
+                            "from": {
+                                "$ref": "#/components/schemas/address"
+                            },
+                            "rri": {
+                                "$ref": "#/components/schemas/rri"
+                            },
+                            "amount": {
+                                "$ref": "#/components/schemas/amount"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "from",
+                            "rri",
+                            "amount"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "MintTokens"
+                                ]
+                            },
+                            "to": {
+                                "$ref": "#/components/schemas/address"
+                            },
+                            "rri": {
+                                "$ref": "#/components/schemas/rri"
+                            },
+                            "amount": {
+                                "$ref": "#/components/schemas/amount"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "to",
+                            "rri",
+                            "amount"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "RegisterValidator"
+                                ]
+                            },
+                            "validator": {
+                                "$ref": "#/components/schemas/validatorAddress"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "validator"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "UnregisterValidator"
+                                ]
+                            },
+                            "validator": {
+                                "$ref": "#/components/schemas/validatorAddress"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "validator"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "UpdateValidator"
+                                ]
+                            },
+                            "validator": {
+                                "$ref": "#/components/schemas/validatorAddress"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "validator"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "CreateFixedSupplyToken"
+                                ]
+                            },
+                            "from": {
+                                "$ref": "#/components/schemas/address"
+                            },
+                            "rri": {
+                                "$ref": "#/components/schemas/rri"
+                            },
+                            "symbol": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "iconUrl": {
+                                "type": "string"
+                            },
+                            "tokenUrl": {
+                                "type": "string"
+                            },
+                            "supply": {
+                                "$ref": "#/components/schemas/amount"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "from",
+                            "rri",
+                            "symbol",
+                            "name",
+                            "description",
+                            "iconUrl",
+                            "tokenUrl",
+                            "supply"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "CreateMutableSupplyToken"
+                                ]
+                            },
+                            "symbol": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "iconUrl": {
+                                "type": "string"
+                            },
+                            "tokenUrl": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "symbol",
+                            "name"
                         ],
                         "additionalProperties": false
                     },
@@ -1060,6 +2485,10 @@
             "amount": {
                 "type": "string",
                 "pattern": "^[0-9]+$"
+            },
+            "hostPort": {
+                "type": "string",
+                "pattern": "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9]):[0-9]+$"
             },
             "rri": {
                 "type": "string",
