@@ -1007,7 +1007,7 @@
                                             "type": "object",
                                             "properties": {
                                                 "rri": {
-                                                    "$ref": "#/components/schemas/rri"
+                                                    "type": "string"
                                                 },
                                                 "amount": {
                                                     "$ref": "#/components/schemas/amount"
