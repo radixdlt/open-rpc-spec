@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.5](https://github.com/radixdlt/open-rpc-spec/tree/1.0.5) (2021-06-15)
+
+**Merged pull requests:**
+
+- Finalize specification for v2.0 [\#6](https://github.com/radixdlt/open-rpc-spec/pull/6)
+
 ## [1.0.4](https://github.com/radixdlt/open-rpc-spec/tree/1.0.4) (2021-06-04)
 
 **Merged pull requests:**
