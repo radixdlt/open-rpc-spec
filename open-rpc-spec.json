@@ -2,8 +2,9 @@
     "openrpc": "1.0.0-rc1",
     "info": {
         "title": "Radix Core JSON-RPC API",
-        "version": "2.0.0-beta"
+        "version": "2.0.0"
     },
+
     "methods": [
         {
             "name": "tokens.get_native_token",
@@ -728,6 +729,13 @@
                     "schema": {
                         "type": "string"
                     }
+                },
+                {
+                    "name": "disableResourceAllocationAndDestroy",
+                    "required": false,
+                    "schema": {
+                        "type": "boolean"
+                    }
                 }
             ],
             "result": {
@@ -999,7 +1007,7 @@
                                             "type": "object",
                                             "properties": {
                                                 "rri": {
-                                                    "$ref": "#/components/schemas/rri"
+                                                    "type": "string"
                                                 },
                                                 "amount": {
                                                     "$ref": "#/components/schemas/amount"
@@ -1070,6 +1078,13 @@
                     "required": false,
                     "schema": {
                         "type": "string"
+                    }
+                },
+                {
+                    "name": "disableResourceAllocationAndDestroy",
+                    "required": false,
+                    "schema": {
+                        "type": "boolean"
                     }
                 }
             ],
@@ -1392,16 +1407,11 @@
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "consensus": {
-                            "type": "object",
-                            "properties": {
-                                "pacemaker_timeout": {
-                                    "type": "integer"
-                                },
-                                "bft_sync_patience_ms": {
-                                    "type": "integer"
-                                }
-                            }
+                        "pacemakerTimeout": {
+                            "type": "integer"
+                        },
+                        "bftSyncPatienceMs": {
+                            "type": "integer"
                         }
                     }
                 }
@@ -1422,60 +1432,55 @@
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "bft": {
+                        "stateVersion": {
+                            "type": "integer"
+                        },
+                        "voteQuorums": {
+                            "type": "integer"
+                        },
+                        "rejected": {
+                            "type": "integer"
+                        },
+                        "vertexStoreRebuilds": {
+                            "type": "integer"
+                        },
+                        "vertexStoreForks": {
+                            "type": "integer"
+                        },
+                        "sync": {
                             "type": "object",
                             "properties": {
-                                "state_version": {
+                                "requestTimeouts": {
                                     "type": "integer"
                                 },
-                                "vote_quorums": {
-                                    "type": "integer"
-                                },
-                                "rejected": {
-                                    "type": "integer"
-                                },
-                                "vertex_store_rebuilds": {
-                                    "type": "integer"
-                                },
-                                "vertex_store_forks": {
-                                    "type": "integer"
-                                },
-                                "sync": {
-                                    "type": "object",
-                                    "properties": {
-                                        "request_timeouts": {
-                                            "type": "integer"
-                                        },
-                                        "requests_sent": {
-                                            "type": "integer"
-                                        }
-                                    }
-                                },
-                                "timeout": {
-                                    "type": "integer"
-                                },
-                                "vertex_store_size": {
-                                    "type": "integer"
-                                },
-                                "processed": {
-                                    "type": "integer"
-                                },
-                                "consensus_events": {
-                                    "type": "integer"
-                                },
-                                "indirect_parent": {
-                                    "type": "integer"
-                                },
-                                "proposals_made": {
-                                    "type": "integer"
-                                },
-                                "timed_out_views": {
-                                    "type": "integer"
-                                },
-                                "timeout_quorums": {
+                                "requestsSent": {
                                     "type": "integer"
                                 }
                             }
+                        },
+                        "timeout": {
+                            "type": "integer"
+                        },
+                        "vertexStoreSize": {
+                            "type": "integer"
+                        },
+                        "processed": {
+                            "type": "integer"
+                        },
+                        "consensusEvents": {
+                            "type": "integer"
+                        },
+                        "indirectParent": {
+                            "type": "integer"
+                        },
+                        "proposalsMade": {
+                            "type": "integer"
+                        },
+                        "timedOutViews": {
+                            "type": "integer"
+                        },
+                        "timeoutQuorums": {
+                            "type": "integer"
                         }
                     }
                 }
@@ -1496,16 +1501,11 @@
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "mempool": {
-                            "type": "object",
-                            "properties": {
-                                "max_size": {
-                                    "type": "integer"
-                                },
-                                "throttle_ms": {
-                                    "type": "integer"
-                                }
-                            }
+                        "maxSize": {
+                            "type": "integer"
+                        },
+                        "throttleMs": {
+                            "type": "integer"
                         }
                     }
                 }
@@ -1526,37 +1526,32 @@
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "mempool": {
+                        "maxcount": {
+                            "type": "integer"
+                        },
+                        "relayerSentCount": {
+                            "type": "integer"
+                        },
+                        "count": {
+                            "type": "integer"
+                        },
+                        "addSuccess": {
+                            "type": "integer"
+                        },
+                        "proposedTransaction": {
+                            "type": "integer"
+                        },
+                        "errors": {
                             "type": "object",
                             "properties": {
-                                "maxcount": {
+                                "other": {
                                     "type": "integer"
                                 },
-                                "relayer_sent_count": {
+                                "hook": {
                                     "type": "integer"
                                 },
-                                "count": {
+                                "conflict": {
                                     "type": "integer"
-                                },
-                                "add_success": {
-                                    "type": "integer"
-                                },
-                                "proposed_transaction": {
-                                    "type": "integer"
-                                },
-                                "errors": {
-                                    "type": "object",
-                                    "properties": {
-                                        "other": {
-                                            "type": "integer"
-                                        },
-                                        "hook": {
-                                            "type": "integer"
-                                        },
-                                        "conflict": {
-                                            "type": "integer"
-                                        }
-                                    }
                                 }
                             }
                         }
@@ -1697,36 +1692,31 @@
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "radix_engine": {
-                            "type": "object",
-                            "properties": {
-                                "forks": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "name": {
-                                                "type": "string"
-                                            },
-                                            "epoch": {
-                                                "type": "integer"
-                                            },
-                                            "ceiling_view": {
-                                                "type": "integer"
-                                            }
-                                        }
+                        "forks": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "epoch": {
+                                        "type": "integer"
+                                    },
+                                    "ceilingView": {
+                                        "type": "integer"
                                     }
-                                },
-                                "max_validators": {
-                                    "type": "integer"
-                                },
-                                "min_validators": {
-                                    "type": "integer"
-                                },
-                                "max_txns_per_proposal": {
-                                    "type": "integer"
                                 }
                             }
+                        },
+                        "maxValidators": {
+                            "type": "integer"
+                        },
+                        "minValidators": {
+                            "type": "integer"
+                        },
+                        "maxTxnsPerProposal": {
+                            "type": "integer"
                         }
                     }
                 }
@@ -1747,19 +1737,14 @@
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "radix_engine": {
-                            "type": "object",
-                            "properties": {
-                                "invalid_proposed_commands": {
-                                    "type": "integer"
-                                },
-                                "system_transactions": {
-                                    "type": "integer"
-                                },
-                                "user_transactions": {
-                                    "type": "integer"
-                                }
-                            }
+                        "invalidProposedCommands": {
+                            "type": "integer"
+                        },
+                        "systemTransactions": {
+                            "type": "integer"
+                        },
+                        "userTransactions": {
+                            "type": "integer"
                         }
                     }
                 }
@@ -1780,19 +1765,19 @@
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "max_ledger_updates_rate": {
+                        "maxLedgerUpdatesRate": {
                             "type": "number"
                         },
-                        "request_timeout": {
+                        "requestTimeout": {
                             "type": "integer"
                         },
-                        "sync_check_interval": {
+                        "syncCheckInterval": {
                             "type": "integer"
                         },
-                        "sync_check_max_peers": {
+                        "syncCheckMaxPeers": {
                             "type": "integer"
                         },
-                        "ledger_status_update_max_peers_to_notify": {
+                        "ledgerStatusUpdateMaxPeersToNotify": {
                             "type": "integer"
                         }
                     }
@@ -1814,28 +1799,23 @@
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "sync": {
-                            "type": "object",
-                            "properties": {
-                                "processed": {
-                                    "type": "integer"
-                                },
-                                "target_state_version": {
-                                    "type": "integer"
-                                },
-                                "remote_requests_processed": {
-                                    "type": "integer"
-                                },
-                                "invalid_commands_received": {
-                                    "type": "integer"
-                                },
-                                "last_read_millis": {
-                                    "type": "integer"
-                                },
-                                "target_current_diff": {
-                                    "type": "integer"
-                                }
-                            }
+                        "processed": {
+                            "type": "integer"
+                        },
+                        "targetStateVersion": {
+                            "type": "integer"
+                        },
+                        "remoteRequestsProcessed": {
+                            "type": "integer"
+                        },
+                        "invalidCommandsReceived": {
+                            "type": "integer"
+                        },
+                        "lastReadMillis": {
+                            "type": "integer"
+                        },
+                        "targetCurrentDiff": {
+                            "type": "integer"
                         }
                     }
                 }
@@ -1859,25 +1839,25 @@
                         "address": {
                             "type": "string"
                         },
-                        "listen_port": {
+                        "listenPort": {
                             "type": "integer"
                         },
-                        "broadcast_port": {
+                        "broadcastPort": {
                             "type": "integer"
                         },
                         "priority": {
                             "type": "integer"
                         },
-                        "message_buffer_size": {
+                        "messageBufferSize": {
                             "type": "integer"
                         },
-                        "max_in_channels": {
+                        "maxInChannels": {
                             "type": "integer"
                         },
-                        "max_out_channels": {
+                        "maxOutChannels": {
                             "type": "integer"
                         },
-                        "debug_data": {
+                        "debugData": {
                             "type": "boolean"
                         }
                     }
@@ -1974,7 +1954,7 @@
                                 "udp": {
                                     "type": "object",
                                     "properties": {
-                                        "dropped_messages": {
+                                        "droppedMessages": {
                                             "type": "integer"
                                         }
                                     }
@@ -1982,13 +1962,13 @@
                                 "tcp": {
                                     "type": "object",
                                     "properties": {
-                                        "out_opened": {
+                                        "outOpened": {
                                             "type": "integer"
                                         },
-                                        "dropped_messages": {
+                                        "droppedMessages": {
                                             "type": "integer"
                                         },
-                                        "in_opened": {
+                                        "inOpened": {
                                             "type": "integer"
                                         },
                                         "closed": {
@@ -1996,10 +1976,10 @@
                                         }
                                     }
                                 },
-                                "received_bytes": {
+                                "receivedBytes": {
                                     "type": "integer"
                                 },
-                                "sent_bytes": {
+                                "sentBytes": {
                                     "type": "integer"
                                 }
                             }
@@ -2089,6 +2069,108 @@
                             }
                         }
                     }
+                }
+            }
+        },
+        {
+            "name": "validation.get_node_info",
+            "summary": "Get information about node as a validator - stakes, registration status, etc.",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./validation"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "nodeInfoResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "address": {
+                            "$ref": "#/components/schemas/validatorAddress"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "ulr": {
+                            "type": "string"
+                        },
+                        "registered": {
+                            "type": "boolean"
+                        },
+                        "totalStake": {
+                            "$ref": "#/components/schemas/amount"
+                        },
+                        "stakes": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "amount": {
+                                        "$ref": "#/components/schemas/amount"
+                                    },
+                                    "delegator": {
+                                        "$ref": "#/components/schemas/address"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "address",
+                        "name",
+                        "ulr",
+                        "registered",
+                        "totalStake",
+                        "stakes"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "validation.get_current_epoch_data",
+            "summary": "Get information about the current set of validators (NOT YET IMPLEMENTED, ALWAYS RETURNS EMPTY RESULT)",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./validation"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "currentEpochDataResult",
+                "schema": {
+                }
+            }
+        },
+        {
+            "name": "validation.get_next_epoch_data",
+            "summary": "Get information about the next set of validators",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./validation"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "nextEpochResult",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "validators": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/validator"
+                            }
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "validators"
+                    ]
                 }
             }
         }
@@ -2379,6 +2461,9 @@
                                 "type": "string"
                             },
                             "tokenUrl": {
+                                "type": "string"
+                            },
+                            "signerPublicKey": {
                                 "type": "string"
                             }
                         },
