@@ -1832,33 +1832,50 @@
             ],
             "params": [],
             "result": {
-                "name": "syncConfigurationResult",
+                "name": "networkingConfigurationResult",
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "address": {
+                        "defaultPort": {
+                            "type": "integer"
+                        },
+                        "discoveryInterval":{
+                            "type": "integer"
+                        },
+                        "listenAddress": {
                             "type": "string"
                         },
-                        "listenPort": {
+                        "listenPort":{
                             "type": "integer"
                         },
                         "broadcastPort": {
                             "type": "integer"
                         },
-                        "priority": {
+                        "peerConnectionTimeout":{
                             "type": "integer"
                         },
-                        "messageBufferSize": {
+                        "maxInboundChannels": {
                             "type": "integer"
                         },
-                        "maxInChannels": {
+                        "maxOutboundChannels":{
                             "type": "integer"
                         },
-                        "maxOutChannels": {
+                        "channelBufferSize": {
                             "type": "integer"
                         },
-                        "debugData": {
-                            "type": "boolean"
+                        "peerLivenessCheckInterval":{
+                            "type": "integer"
+                        },
+                        "pingTimeout": {
+                            "type": "integer"
+                        },
+                        "seedNodes": {
+                            "type": "array",
+                            "items": [
+                                {
+                                    "type": "string"
+                                }
+                            ]
                         }
                     }
                 }
@@ -1883,10 +1900,26 @@
                             "type": "object",
                             "properties": {
                                 "address": {
-                                    "$ref": "#/components/schemas/validatorAddress"
+                                    "$ref": "#/components/schemas/nodeAddress"
                                 },
-                                "endpoint": {
-                                    "$ref": "#/components/schemas/hostPort"
+                                "channels": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string"
+                                                },
+                                                "localPort": {
+                                                    "type": "integer"
+                                                },
+                                                "uri": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -1919,9 +1952,6 @@
                                             "type": "integer"
                                         },
                                         "discarded": {
-                                            "type": "integer"
-                                        },
-                                        "badsignature": {
                                             "type": "integer"
                                         },
                                         "received": {
@@ -2586,6 +2616,10 @@
             "address": {
                 "type": "string",
                 "pattern": "^(brx|rdx)1qsp[023456789ACDEFGHJKLMNPQRSTUVWXYZacdefghjklmnpqrstuvwxyz]{58}$"
+            },
+            "nodeAddress": {
+                "type": "string",
+                "pattern": "^(brn|rdn)1qsp[023456789ACDEFGHJKLMNPQRSTUVWXYZacdefghjklmnpqrstuvwxyz]{58}$"
             },
             "validatorAddress": {
                 "type": "string",
