@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.6](https://github.com/radixdlt/open-rpc-spec/tree/1.0.6) (2021-06-17)
+
+**Merged pull requests:**
+
+- Update peer data and networking configuration data to reflect internal changes [\#7](https://github.com/radixdlt/open-rpc-spec/pull/7)
+
 ## [1.0.5](https://github.com/radixdlt/open-rpc-spec/tree/1.0.5) (2021-06-15)
 
 **Merged pull requests:**
@@ -7,10 +13,6 @@
 - Finalize specification for v2.0 [\#6](https://github.com/radixdlt/open-rpc-spec/pull/6)
 
 ## [1.0.4](https://github.com/radixdlt/open-rpc-spec/tree/1.0.4) (2021-06-04)
-
-**Merged pull requests:**
-
-- Update to API V2 [\#5](https://github.com/radixdlt/open-rpc-spec/pull/5)
 
 ## [1.0.3](https://github.com/radixdlt/open-rpc-spec/tree/1.0.3) (2021-05-20)
 
@@ -22,6 +24,7 @@
 
 **Merged pull requests:**
 
+- Update to API V2 [\#5](https://github.com/radixdlt/open-rpc-spec/pull/5)
 - Fix publishing [\#3](https://github.com/radixdlt/open-rpc-spec/pull/3)
 - fix release branch [\#2](https://github.com/radixdlt/open-rpc-spec/pull/2)
 - publish packages [\#1](https://github.com/radixdlt/open-rpc-spec/pull/1)
