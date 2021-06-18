@@ -2434,8 +2434,8 @@
                             "from": {
                                 "$ref": "#/components/schemas/address"
                             },
-                            "rri": {
-                                "$ref": "#/components/schemas/rri"
+                            "signer": {
+                                "$ref": "#/components/schemas/pubKey"
                             },
                             "symbol": {
                                 "type": "string"
@@ -2477,6 +2477,12 @@
                                 "enum": [
                                     "CreateMutableSupplyToken"
                                 ]
+                            },
+                            "from": {
+                                "$ref": "#/components/schemas/address"
+                            },
+                            "signer": {
+                                "$ref": "#/components/schemas/pubKey"
                             },
                             "symbol": {
                                 "type": "string"
@@ -2617,6 +2623,10 @@
                 "type": "string",
                 "pattern": "^(brx|rdx)1qsp[023456789ACDEFGHJKLMNPQRSTUVWXYZacdefghjklmnpqrstuvwxyz]{58}$"
             },
+            "pubKey": {
+                "type": "string",
+                "pattern": "^[0123456789abcdef]+$"
+            },
             "nodeAddress": {
                 "type": "string",
                 "pattern": "^(brn|rdn)1qsp[023456789ACDEFGHJKLMNPQRSTUVWXYZacdefghjklmnpqrstuvwxyz]{58}$"
@@ -2627,7 +2637,7 @@
             },
             "txID": {
                 "type": "string",
-                "pattern": "^[0123456789abcfed]{64}$",
+                "pattern": "^[0123456789abcdef]{64}$",
                 "maxLength": 64,
                 "minLength": 64
             }
