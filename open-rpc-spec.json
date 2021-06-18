@@ -2434,7 +2434,7 @@
                             "from": {
                                 "$ref": "#/components/schemas/address"
                             },
-                            "signer": {
+                            "publicKeyOfSigner": {
                                 "$ref": "#/components/schemas/pubKey"
                             },
                             "symbol": {
@@ -2459,7 +2459,7 @@
                         "required": [
                             "type",
                             "from",
-                            "rri",
+                            "publicKeyOfSigner",
                             "symbol",
                             "name",
                             "description",
@@ -2481,7 +2481,7 @@
                             "from": {
                                 "$ref": "#/components/schemas/address"
                             },
-                            "signer": {
+                            "publicKeyOfSigner": {
                                 "$ref": "#/components/schemas/pubKey"
                             },
                             "symbol": {
@@ -2499,12 +2499,11 @@
                             "tokenUrl": {
                                 "type": "string"
                             },
-                            "signerPublicKey": {
-                                "type": "string"
-                            }
                         },
                         "required": [
                             "type",
+                            "from",
+                            "publicKeyOfSigner",
                             "symbol",
                             "name"
                         ],
