@@ -2434,8 +2434,8 @@
                             "from": {
                                 "$ref": "#/components/schemas/address"
                             },
-                            "rri": {
-                                "$ref": "#/components/schemas/rri"
+                            "publicKeyOfSigner": {
+                                "$ref": "#/components/schemas/pubKey"
                             },
                             "symbol": {
                                 "type": "string"
@@ -2459,7 +2459,7 @@
                         "required": [
                             "type",
                             "from",
-                            "rri",
+                            "publicKeyOfSigner",
                             "symbol",
                             "name",
                             "description",
@@ -2478,6 +2478,12 @@
                                     "CreateMutableSupplyToken"
                                 ]
                             },
+                            "from": {
+                                "$ref": "#/components/schemas/address"
+                            },
+                            "publicKeyOfSigner": {
+                                "$ref": "#/components/schemas/pubKey"
+                            },
                             "symbol": {
                                 "type": "string"
                             },
@@ -2493,12 +2499,11 @@
                             "tokenUrl": {
                                 "type": "string"
                             },
-                            "signerPublicKey": {
-                                "type": "string"
-                            }
                         },
                         "required": [
                             "type",
+                            "from",
+                            "publicKeyOfSigner",
                             "symbol",
                             "name"
                         ],
@@ -2617,6 +2622,10 @@
                 "type": "string",
                 "pattern": "^(brx|rdx)1qsp[023456789ACDEFGHJKLMNPQRSTUVWXYZacdefghjklmnpqrstuvwxyz]{58}$"
             },
+            "pubKey": {
+                "type": "string",
+                "pattern": "^[0123456789abcdef]+$"
+            },
             "nodeAddress": {
                 "type": "string",
                 "pattern": "^(brn|rdn)1qsp[023456789ACDEFGHJKLMNPQRSTUVWXYZacdefghjklmnpqrstuvwxyz]{58}$"
@@ -2627,7 +2636,7 @@
             },
             "txID": {
                 "type": "string",
-                "pattern": "^[0123456789abcfed]{64}$",
+                "pattern": "^[0123456789abcdef]{64}$",
                 "maxLength": 64,
                 "minLength": 64
             }
