@@ -732,7 +732,7 @@
                 },
                 {
                     "name": "feePayer",
-                    "required": false,
+                    "required": true,
                     "schema": {
                         "$ref": "#/components/schemas/address"
                     }
