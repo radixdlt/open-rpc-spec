@@ -731,6 +731,13 @@
                     }
                 },
                 {
+                    "name": "feePayer",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/components/schemas/address"
+                    }
+                },
+                {
                     "name": "disableResourceAllocationAndDestroy",
                     "required": false,
                     "schema": {
