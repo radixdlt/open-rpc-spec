@@ -2505,7 +2505,7 @@
                             },
                             "tokenUrl": {
                                 "type": "string"
-                            },
+                            }
                         },
                         "required": [
                             "type",
