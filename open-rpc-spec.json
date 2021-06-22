@@ -724,17 +724,17 @@
                     }
                 },
                 {
-                    "name": "message",
-                    "required": false,
-                    "schema": {
-                        "type": "string"
-                    }
-                },
-                {
                     "name": "feePayer",
                     "required": true,
                     "schema": {
                         "$ref": "#/components/schemas/address"
+                    }
+                },
+                {
+                    "name": "message",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
                     }
                 },
                 {
