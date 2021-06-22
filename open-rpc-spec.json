@@ -2485,9 +2485,6 @@
                                     "CreateMutableSupplyToken"
                                 ]
                             },
-                            "from": {
-                                "$ref": "#/components/schemas/address"
-                            },
                             "publicKeyOfSigner": {
                                 "$ref": "#/components/schemas/pubKey"
                             },
@@ -2505,11 +2502,10 @@
                             },
                             "tokenUrl": {
                                 "type": "string"
-                            },
+                            }
                         },
                         "required": [
                             "type",
-                            "from",
                             "publicKeyOfSigner",
                             "symbol",
                             "name"
