@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.13](https://github.com/radixdlt/open-rpc-spec/tree/1.0.13) (2021-06-22)
+
+**Merged pull requests:**
+
+- Add new Update\* actions [\#12](https://github.com/radixdlt/open-rpc-spec/pull/12)
+
 ## [1.0.12](https://github.com/radixdlt/open-rpc-spec/tree/1.0.12) (2021-06-22)
 
 **Merged pull requests:**
@@ -27,7 +33,6 @@
 **Merged pull requests:**
 
 - Accommodate changes in API implementation [\#8](https://github.com/radixdlt/open-rpc-spec/pull/8)
-- Fix publishing [\#3](https://github.com/radixdlt/open-rpc-spec/pull/3)
 
 ## [1.0.6](https://github.com/radixdlt/open-rpc-spec/tree/1.0.6) (2021-06-17)
 
@@ -57,6 +62,7 @@
 
 **Merged pull requests:**
 
+- Fix publishing [\#3](https://github.com/radixdlt/open-rpc-spec/pull/3)
 - fix release branch [\#2](https://github.com/radixdlt/open-rpc-spec/pull/2)
 - publish packages [\#1](https://github.com/radixdlt/open-rpc-spec/pull/1)
 
