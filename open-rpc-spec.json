@@ -2435,6 +2435,75 @@
                             "type": {
                                 "type": "string",
                                 "enum": [
+                                    "UpdateRake"
+                                ]
+                            },
+                            "validator": {
+                                "$ref": "#/components/schemas/validatorAddress"
+                            },
+                            "percentage": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "validator",
+                            "percentage"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "UpdateAllowDelegationFlag"
+                                ]
+                            },
+                            "validator": {
+                                "$ref": "#/components/schemas/validatorAddress"
+                            },
+                            "allowDelegation": {
+                                "type": "boolean"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "validator",
+                            "allowDelegation"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "UpdateValidatorOwnerAddress"
+                                ]
+                            },
+                            "validator": {
+                                "$ref": "#/components/schemas/validatorAddress"
+                            },
+                            "owner": {
+                                "$ref": "#/components/schemas/address"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "validator",
+                            "owner"
+                        ],
+                        "additionalProperties": false
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
                                     "CreateFixedSupplyToken"
                                 ]
                             },
