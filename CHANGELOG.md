@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.8](https://github.com/radixdlt/open-rpc-spec/tree/1.0.8) (2021-06-22)
+
+**Merged pull requests:**
+
+- Add new parameter to build\_transaction [\#9](https://github.com/radixdlt/open-rpc-spec/pull/9)
+
 ## [1.0.7](https://github.com/radixdlt/open-rpc-spec/tree/1.0.7) (2021-06-21)
 
 **Merged pull requests:**
