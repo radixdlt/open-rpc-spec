@@ -1,5 +1,7 @@
 # Changelog
 
+## [1.0.11](https://github.com/radixdlt/open-rpc-spec/tree/1.0.11) (2021-06-22)
+
 ## [1.0.10](https://github.com/radixdlt/open-rpc-spec/tree/1.0.10) (2021-06-22)
 
 ## [1.0.9](https://github.com/radixdlt/open-rpc-spec/tree/1.0.9) (2021-06-22)
