@@ -2152,6 +2152,15 @@
                                     }
                                 }
                             }
+                        },
+                        "owner": {
+                            "$ref": "#/components/schemas/address"
+                        },
+                        "percentage": {
+                            "type": "integer"
+                        },
+                        "allowDelegation": {
+                            "type": "boolean"
                         }
                     },
                     "additionalProperties": false,
@@ -2161,7 +2170,10 @@
                         "ulr",
                         "registered",
                         "totalStake",
-                        "stakes"
+                        "stakes",
+                        "owner",
+                        "percentage",
+                        "allowDelegation"
                     ]
                 }
             }
@@ -2649,6 +2661,9 @@
                     "ownerDelegation": {
                         "$ref": "#/components/schemas/amount"
                     },
+                    "percentage": {
+                        "type": "integer"
+                    },
                     "isExternalStakeAccepted": {
                         "type": "boolean"
                     }
@@ -2661,6 +2676,7 @@
                     "infoURL",
                     "totalDelegatedStake",
                     "ownerDelegation",
+                    "percentage",
                     "isExternalStakeAccepted"
                 ]
             },
