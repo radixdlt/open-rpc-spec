@@ -224,7 +224,7 @@
                                     "txID": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
                                     "sentAt": "1995-12-17T03:24:00",
                                     "fee": "100",
-                                    "message": "Example message",
+                                    "message": "4578616d706c65206d657373616765",
                                     "actions": [
                                         {
                                             "type": "TokenTransfer",
@@ -416,7 +416,7 @@
                             "txID": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
                             "sentAt": "1995-12-17T03:24:00",
                             "fee": "100",
-                            "message": "Example message",
+                            "message": "4578616d706c65206d657373616765",
                             "actions": [
                                 {
                                     "type": "TokenTransfer",
