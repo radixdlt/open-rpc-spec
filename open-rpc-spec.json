@@ -1710,7 +1710,7 @@
                                     "epoch": {
                                         "type": "integer"
                                     },
-                                    "ceilingView": {
+                                    "maxRounds": {
                                         "type": "integer"
                                     }
                                 }
