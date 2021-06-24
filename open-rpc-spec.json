@@ -2377,12 +2377,6 @@
                             },
                             "validator": {
                                 "$ref": "#/components/schemas/validatorAddress"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "url": {
-                                "type": "string"
                             }
                         },
                         "required": [
@@ -2402,12 +2396,6 @@
                             },
                             "validator": {
                                 "$ref": "#/components/schemas/validatorAddress"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "url": {
-                                "type": "string"
                             }
                         },
                         "required": [
@@ -2664,6 +2652,9 @@
                     "percentage": {
                         "type": "integer"
                     },
+                    "registered": {
+                        "type": "boolean"
+                    },
                     "isExternalStakeAccepted": {
                         "type": "boolean"
                     }
@@ -2672,10 +2663,9 @@
                 "required": [
                     "address",
                     "ownerAddress",
-                    "name",
-                    "infoURL",
                     "totalDelegatedStake",
                     "ownerDelegation",
+                    "registered",
                     "percentage",
                     "isExternalStakeAccepted"
                 ]
