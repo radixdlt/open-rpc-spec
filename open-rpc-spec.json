@@ -2166,13 +2166,11 @@
                     "additionalProperties": false,
                     "required": [
                         "address",
-                        "name",
-                        "ulr",
-                        "registered",
                         "totalStake",
                         "stakes",
                         "owner",
                         "percentage",
+                        "registered",
                         "allowDelegation"
                     ]
                 }
