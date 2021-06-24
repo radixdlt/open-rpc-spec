@@ -1,6 +1,16 @@
 # Changelog
 
+## [1.0.15](https://github.com/radixdlt/open-rpc-spec/tree/1.0.15) (2021-06-24)
+
+**Merged pull requests:**
+
+- Message format [\#15](https://github.com/radixdlt/open-rpc-spec/pull/15)
+
 ## [1.0.14](https://github.com/radixdlt/open-rpc-spec/tree/1.0.14) (2021-06-24)
+
+**Merged pull requests:**
+
+- message format [\#14](https://github.com/radixdlt/open-rpc-spec/pull/14)
 
 ## [1.0.13](https://github.com/radixdlt/open-rpc-spec/tree/1.0.13) (2021-06-22)
 
@@ -12,7 +22,6 @@
 
 **Merged pull requests:**
 
-- message format [\#14](https://github.com/radixdlt/open-rpc-spec/pull/14)
 - Remove redundant field from  action [\#11](https://github.com/radixdlt/open-rpc-spec/pull/11)
 
 ## [1.0.11](https://github.com/radixdlt/open-rpc-spec/tree/1.0.11) (2021-06-22)
