@@ -1710,7 +1710,7 @@
                                     "epoch": {
                                         "type": "integer"
                                     },
-                                    "ceilingView": {
+                                    "maxRounds": {
                                         "type": "integer"
                                     }
                                 }
@@ -2152,16 +2152,26 @@
                                     }
                                 }
                             }
+                        },
+                        "owner": {
+                            "$ref": "#/components/schemas/address"
+                        },
+                        "percentage": {
+                            "type": "integer"
+                        },
+                        "allowDelegation": {
+                            "type": "boolean"
                         }
                     },
                     "additionalProperties": false,
                     "required": [
                         "address",
-                        "name",
-                        "ulr",
-                        "registered",
                         "totalStake",
-                        "stakes"
+                        "stakes",
+                        "owner",
+                        "percentage",
+                        "registered",
+                        "allowDelegation"
                     ]
                 }
             }
@@ -2365,12 +2375,6 @@
                             },
                             "validator": {
                                 "$ref": "#/components/schemas/validatorAddress"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "url": {
-                                "type": "string"
                             }
                         },
                         "required": [
@@ -2390,12 +2394,6 @@
                             },
                             "validator": {
                                 "$ref": "#/components/schemas/validatorAddress"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "url": {
-                                "type": "string"
                             }
                         },
                         "required": [
@@ -2649,6 +2647,12 @@
                     "ownerDelegation": {
                         "$ref": "#/components/schemas/amount"
                     },
+                    "percentage": {
+                        "type": "integer"
+                    },
+                    "registered": {
+                        "type": "boolean"
+                    },
                     "isExternalStakeAccepted": {
                         "type": "boolean"
                     }
@@ -2657,10 +2661,10 @@
                 "required": [
                     "address",
                     "ownerAddress",
-                    "name",
-                    "infoURL",
                     "totalDelegatedStake",
                     "ownerDelegation",
+                    "registered",
+                    "percentage",
                     "isExternalStakeAccepted"
                 ]
             },
