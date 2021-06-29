@@ -1712,6 +1712,9 @@
                                     },
                                     "maxRounds": {
                                         "type": "integer"
+                                    },
+                                    "maxSigsPerRound": {
+                                        "type": "integer"
                                     }
                                 }
                             }
@@ -1720,9 +1723,6 @@
                             "type": "integer"
                         },
                         "minValidators": {
-                            "type": "integer"
-                        },
-                        "maxTxnsPerProposal": {
                             "type": "integer"
                         }
                     }
@@ -2156,7 +2156,7 @@
                         "owner": {
                             "$ref": "#/components/schemas/address"
                         },
-                        "percentage": {
+                        "rakePercentage": {
                             "type": "integer"
                         },
                         "allowDelegation": {
@@ -2169,7 +2169,7 @@
                         "totalStake",
                         "stakes",
                         "owner",
-                        "percentage",
+                        "rakePercentage",
                         "registered",
                         "allowDelegation"
                     ]
@@ -2439,14 +2439,14 @@
                             "validator": {
                                 "$ref": "#/components/schemas/validatorAddress"
                             },
-                            "percentage": {
+                            "rakePercentage": {
                                 "type": "integer"
                             }
                         },
                         "required": [
                             "type",
                             "validator",
-                            "percentage"
+                            "rakePercentage"
                         ],
                         "additionalProperties": false
                     },
@@ -2647,7 +2647,7 @@
                     "ownerDelegation": {
                         "$ref": "#/components/schemas/amount"
                     },
-                    "percentage": {
+                    "rakePercentage": {
                         "type": "integer"
                     },
                     "registered": {
@@ -2664,7 +2664,7 @@
                     "totalDelegatedStake",
                     "ownerDelegation",
                     "registered",
-                    "percentage",
+                    "rakePercentage",
                     "isExternalStakeAccepted"
                 ]
             },
