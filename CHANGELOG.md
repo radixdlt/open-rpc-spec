@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.18](https://github.com/radixdlt/open-rpc-spec/tree/1.0.18) (2021-06-29)
+
+**Merged pull requests:**
+
+- Fix field names; Fix radix engine configuration data [\#16](https://github.com/radixdlt/open-rpc-spec/pull/16)
+
 ## [1.0.17](https://github.com/radixdlt/open-rpc-spec/tree/1.0.17) (2021-06-24)
 
 ## [1.0.16](https://github.com/radixdlt/open-rpc-spec/tree/1.0.16) (2021-06-24)
