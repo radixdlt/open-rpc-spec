@@ -898,6 +898,13 @@
                     "schema": {
                         "type": "string"
                     }
+                },
+                {
+                    "name": "immediateSubmit",
+                    "required": false,
+                    "schema": {
+                        "type": "boolean"
+                    }
                 }
             ],
             "result": {
@@ -907,6 +914,9 @@
                     "properties": {
                         "txID": {
                             "$ref": "#/components/schemas/txID"
+                        },
+                        "blob": {
+                            "type": "string"
                         }
                     },
                     "additionalProperties": false,
@@ -927,30 +937,7 @@
             ],
             "params": [
                 {
-                    "name": "transaction",
-                    "required": true,
-                    "schema": {
-                        "type": "object",
-                        "properties": {
-                            "blob": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "blob"
-                        ],
-                        "additionalProperties": false
-                    }
-                },
-                {
-                    "name": "signatureDER",
-                    "required": true,
-                    "schema": {
-                        "type": "string"
-                    }
-                },
-                {
-                    "name": "publicKeyOfSigner",
+                    "name": "blob",
                     "required": true,
                     "schema": {
                         "type": "string"
@@ -958,7 +945,7 @@
                 },
                 {
                     "name": "txID",
-                    "required": true,
+                    "required": false,
                     "schema": {
                         "$ref": "#/components/schemas/txID"
                     }
