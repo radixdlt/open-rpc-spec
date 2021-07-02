@@ -871,18 +871,10 @@
             ],
             "params": [
                 {
-                    "name": "transaction",
+                    "name": "blob",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "blob": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "blob"
-                        ]
+                        "type": "string"
                     }
                 },
                 {
@@ -898,6 +890,13 @@
                     "schema": {
                         "type": "string"
                     }
+                },
+                {
+                    "name": "immediateSubmit",
+                    "required": false,
+                    "schema": {
+                        "type": "boolean"
+                    }
                 }
             ],
             "result": {
@@ -907,6 +906,9 @@
                     "properties": {
                         "txID": {
                             "$ref": "#/components/schemas/txID"
+                        },
+                        "blob": {
+                            "type": "string"
                         }
                     },
                     "additionalProperties": false,
@@ -927,30 +929,7 @@
             ],
             "params": [
                 {
-                    "name": "transaction",
-                    "required": true,
-                    "schema": {
-                        "type": "object",
-                        "properties": {
-                            "blob": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "blob"
-                        ],
-                        "additionalProperties": false
-                    }
-                },
-                {
-                    "name": "signatureDER",
-                    "required": true,
-                    "schema": {
-                        "type": "string"
-                    }
-                },
-                {
-                    "name": "publicKeyOfSigner",
+                    "name": "blob",
                     "required": true,
                     "schema": {
                         "type": "string"
@@ -958,7 +937,7 @@
                 },
                 {
                     "name": "txID",
-                    "required": true,
+                    "required": false,
                     "schema": {
                         "$ref": "#/components/schemas/txID"
                     }
@@ -1589,7 +1568,7 @@
                             "items": {
                                 "type": "object",
                                 "properties": {
-                                    "address": {
+                                    "key": {
                                         "type": "string"
                                     },
                                     "signature": {
@@ -1648,7 +1627,7 @@
                             "items": {
                                 "type": "object",
                                 "properties": {
-                                    "address": {
+                                    "key": {
                                         "type": "string"
                                     },
                                     "signature": {
@@ -1697,33 +1676,28 @@
             "result": {
                 "name": "radixEngineConfigurationResult",
                 "schema": {
-                    "type": "object",
-                    "properties": {
-                        "forks": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    },
-                                    "epoch": {
-                                        "type": "integer"
-                                    },
-                                    "maxRounds": {
-                                        "type": "integer"
-                                    },
-                                    "maxSigsPerRound": {
-                                        "type": "integer"
-                                    }
-                                }
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "version": {
+                                "type": "string"
+                            },
+                            "maxRounds": {
+                                "type": "integer"
+                            },
+                            "maxSigsPerRound": {
+                                "type": "integer"
+                            },
+                            "maxValidators": {
+                                "type": "integer"
+                            },
+                            "epoch": {
+                                "type": "integer"
                             }
-                        },
-                        "maxValidators": {
-                            "type": "integer"
-                        },
-                        "minValidators": {
-                            "type": "integer"
                         }
                     }
                 }
@@ -2156,7 +2130,7 @@
                         "owner": {
                             "$ref": "#/components/schemas/address"
                         },
-                        "rakePercentage": {
+                        "validatorFee": {
                             "type": "integer"
                         },
                         "allowDelegation": {
@@ -2169,7 +2143,7 @@
                         "totalStake",
                         "stakes",
                         "owner",
-                        "rakePercentage",
+                        "validatorFee",
                         "registered",
                         "allowDelegation"
                     ]
@@ -2439,14 +2413,14 @@
                             "validator": {
                                 "$ref": "#/components/schemas/validatorAddress"
                             },
-                            "rakePercentage": {
+                            "validatorFee": {
                                 "type": "integer"
                             }
                         },
                         "required": [
                             "type",
                             "validator",
-                            "rakePercentage"
+                            "validatorFee"
                         ],
                         "additionalProperties": false
                     },
@@ -2647,7 +2621,7 @@
                     "ownerDelegation": {
                         "$ref": "#/components/schemas/amount"
                     },
-                    "rakePercentage": {
+                    "validatorFee": {
                         "type": "integer"
                     },
                     "registered": {
@@ -2664,7 +2638,7 @@
                     "totalDelegatedStake",
                     "ownerDelegation",
                     "registered",
-                    "rakePercentage",
+                    "validatorFee",
                     "isExternalStakeAccepted"
                 ]
             },
