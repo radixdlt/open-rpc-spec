@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.19](https://github.com/radixdlt/open-rpc-spec/tree/1.0.19) (2021-07-02)
+
+**Merged pull requests:**
+
+- Single parameter `submit\_transaction` [\#17](https://github.com/radixdlt/open-rpc-spec/pull/17)
+
 ## [1.0.18](https://github.com/radixdlt/open-rpc-spec/tree/1.0.18) (2021-06-29)
 
 **Merged pull requests:**
