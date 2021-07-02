@@ -871,18 +871,10 @@
             ],
             "params": [
                 {
-                    "name": "transaction",
+                    "name": "blob",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "blob": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "blob"
-                        ]
+                        "type": "string"
                     }
                 },
                 {
@@ -2138,7 +2130,7 @@
                         "owner": {
                             "$ref": "#/components/schemas/address"
                         },
-                        "rakePercentage": {
+                        "validatorFee": {
                             "type": "integer"
                         },
                         "allowDelegation": {
@@ -2151,7 +2143,7 @@
                         "totalStake",
                         "stakes",
                         "owner",
-                        "rakePercentage",
+                        "validatorFee",
                         "registered",
                         "allowDelegation"
                     ]
@@ -2421,14 +2413,14 @@
                             "validator": {
                                 "$ref": "#/components/schemas/validatorAddress"
                             },
-                            "rakePercentage": {
+                            "validatorFee": {
                                 "type": "integer"
                             }
                         },
                         "required": [
                             "type",
                             "validator",
-                            "rakePercentage"
+                            "validatorFee"
                         ],
                         "additionalProperties": false
                     },
@@ -2629,7 +2621,7 @@
                     "ownerDelegation": {
                         "$ref": "#/components/schemas/amount"
                     },
-                    "rakePercentage": {
+                    "validatorFee": {
                         "type": "integer"
                     },
                     "registered": {
@@ -2646,7 +2638,7 @@
                     "totalDelegatedStake",
                     "ownerDelegation",
                     "registered",
-                    "rakePercentage",
+                    "validatorFee",
                     "isExternalStakeAccepted"
                 ]
             },
