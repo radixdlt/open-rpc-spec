@@ -1589,7 +1589,7 @@
                             "items": {
                                 "type": "object",
                                 "properties": {
-                                    "address": {
+                                    "key": {
                                         "type": "string"
                                     },
                                     "signature": {
@@ -1648,7 +1648,7 @@
                             "items": {
                                 "type": "object",
                                 "properties": {
-                                    "address": {
+                                    "key": {
                                         "type": "string"
                                     },
                                     "signature": {
@@ -1697,33 +1697,28 @@
             "result": {
                 "name": "radixEngineConfigurationResult",
                 "schema": {
-                    "type": "object",
-                    "properties": {
-                        "forks": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    },
-                                    "epoch": {
-                                        "type": "integer"
-                                    },
-                                    "maxRounds": {
-                                        "type": "integer"
-                                    },
-                                    "maxSigsPerRound": {
-                                        "type": "integer"
-                                    }
-                                }
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "version": {
+                                "type": "string"
+                            },
+                            "maxRounds": {
+                                "type": "integer"
+                            },
+                            "maxSigsPerRound": {
+                                "type": "integer"
+                            },
+                            "maxValidators": {
+                                "type": "integer"
+                            },
+                            "epoch": {
+                                "type": "integer"
                             }
-                        },
-                        "maxValidators": {
-                            "type": "integer"
-                        },
-                        "minValidators": {
-                            "type": "integer"
                         }
                     }
                 }
