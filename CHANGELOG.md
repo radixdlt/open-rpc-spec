@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.20](https://github.com/radixdlt/open-rpc-spec/tree/1.0.20) (2021-07-07)
+
+**Merged pull requests:**
+
+- Rename 'from' to 'to' in 'CreateFixedSupplyToken' action [\#18](https://github.com/radixdlt/open-rpc-spec/pull/18)
+
 ## [1.0.19](https://github.com/radixdlt/open-rpc-spec/tree/1.0.19) (2021-07-02)
 
 **Merged pull requests:**
