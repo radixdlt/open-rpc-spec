@@ -2479,7 +2479,7 @@
                                     "CreateFixedSupplyToken"
                                 ]
                             },
-                            "from": {
+                            "to": {
                                 "$ref": "#/components/schemas/address"
                             },
                             "publicKeyOfSigner": {
@@ -2506,7 +2506,7 @@
                         },
                         "required": [
                             "type",
-                            "from",
+                            "to",
                             "publicKeyOfSigner",
                             "symbol",
                             "name",
