@@ -27,7 +27,7 @@
                         "name": "nativeTokenExample",
                         "value": {
                             "name": "Rad",
-                            "rri": "xrd_rb1qya85pwq",
+                            "rri": "xrd_tr1qyf0x76s",
                             "symbol": "XRD",
                             "description": "The native token of the Radix network",
                             "granularity": "1",
@@ -69,7 +69,7 @@
                         "name": "tokenInfoExample",
                         "value": {
                             "name": "Rad",
-                            "rri": "xrd_rb1qya85pwq",
+                            "rri": "xrd_tr1qyf0x76s",
                             "symbol": "XRD",
                             "description": "The native token of the Radix network",
                             "granularity": "1",
@@ -147,7 +147,7 @@
                             "owner": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
                             "tokenBalances": [
                                 {
-                                    "rri": "xrd_rb1qya85pwq",
+                                    "rri": "xrd_tr1qyf0x76s",
                                     "amount": "100"
                                 }
                             ]
@@ -231,7 +231,7 @@
                                             "from": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
                                             "to": "brx1qsp0mejfswrmcy5xf9up2ve7zez7w2th0fw4ne8js0u0q22vya7kg8getv7av",
                                             "amount": "100",
-                                            "rri": "xrd_rb1qya85pwq"
+                                            "rri": "xrd_tr1qyf0x76s"
                                         },
                                         {
                                             "type": "StakeTokens",
@@ -423,7 +423,7 @@
                                     "from": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
                                     "to": "brx1qsp0mejfswrmcy5xf9up2ve7zez7w2th0fw4ne8js0u0q22vya7kg8getv7av",
                                     "amount": "100",
-                                    "rri": "xrd_rb1qya85pwq"
+                                    "rri": "xrd_tr1qyf0x76s"
                                 },
                                 {
                                     "type": "StakeTokens",
