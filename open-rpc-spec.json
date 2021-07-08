@@ -2131,7 +2131,7 @@
                             "$ref": "#/components/schemas/address"
                         },
                         "validatorFee": {
-                            "type": "integer"
+                            "type": "number"
                         },
                         "allowDelegation": {
                             "type": "boolean"
@@ -2407,14 +2407,14 @@
                             "type": {
                                 "type": "string",
                                 "enum": [
-                                    "UpdateRake"
+                                    "UpdateValidatorFee"
                                 ]
                             },
                             "validator": {
                                 "$ref": "#/components/schemas/validatorAddress"
                             },
                             "validatorFee": {
-                                "type": "integer"
+                                "type": "number"
                             }
                         },
                         "required": [
@@ -2622,7 +2622,7 @@
                         "$ref": "#/components/schemas/amount"
                     },
                     "validatorFee": {
-                        "type": "integer"
+                        "type": "number"
                     },
                     "registered": {
                         "type": "boolean"
@@ -2670,7 +2670,7 @@
             },
             "address": {
                 "type": "string",
-                "pattern": "^(brx|rdx)1qsp[023456789ACDEFGHJKLMNPQRSTUVWXYZacdefghjklmnpqrstuvwxyz]{58}$"
+                "pattern": "^(r|t|d)dx[0-9]?1[023456789ACDEFGHJKLMNPQRSTUVWXYZacdefghjklmnpqrstuvwxyz]{6,69}$"
             },
             "pubKey": {
                 "type": "string",
@@ -2678,11 +2678,11 @@
             },
             "nodeAddress": {
                 "type": "string",
-                "pattern": "^(brn|rdn)1qsp[023456789ACDEFGHJKLMNPQRSTUVWXYZacdefghjklmnpqrstuvwxyz]{58}$"
+                "pattern": "^(r|t|d)n[0-9]?1[023456789ACDEFGHJKLMNPQRSTUVWXYZacdefghjklmnpqrstuvwxyz]{6,69}$"
             },
             "validatorAddress": {
                 "type": "string",
-                "pattern": "^v[rb]1q[023456789ACDEFGHJKLMNPQRSTUVWXYZacdefghjklmnpqrstuvwxyz]{6,90}$"
+                "pattern": "^(r|t|d)v[0-9]?1[023456789ACDEFGHJKLMNPQRSTUVWXYZacdefghjklmnpqrstuvwxyz]{6,69}$"
             },
             "txID": {
                 "type": "string",
