@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.22](https://github.com/radixdlt/open-rpc-spec/tree/1.0.22) (2021-07-12)
+
+**Merged pull requests:**
+
+- Switch to numbers instead of integers for validator fee [\#19](https://github.com/radixdlt/open-rpc-spec/pull/19)
+
 ## [1.0.21](https://github.com/radixdlt/open-rpc-spec/tree/1.0.21) (2021-07-08)
 
 ## [1.0.20](https://github.com/radixdlt/open-rpc-spec/tree/1.0.20) (2021-07-07)
