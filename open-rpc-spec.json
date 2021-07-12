@@ -2382,7 +2382,7 @@
                             "type": {
                                 "type": "string",
                                 "enum": [
-                                    "UpdateValidator"
+                                    "UpdateValidatorMetadata"
                                 ]
                             },
                             "validator": {
