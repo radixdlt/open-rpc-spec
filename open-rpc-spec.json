@@ -2182,35 +2182,6 @@
                 "schema": {
                 }
             }
-        },
-        {
-            "name": "validation.get_next_epoch_data",
-            "summary": "Get information about the next set of validators",
-            "servers": [
-                {
-                    "name": "system",
-                    "url":"http://./validation"
-                }
-            ],
-            "params": [],
-            "result": {
-                "name": "nextEpochResult",
-                "schema": {
-                    "type": "object",
-                    "properties": {
-                        "validators": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/components/schemas/validator"
-                            }
-                        }
-                    },
-                    "additionalProperties": false,
-                    "required": [
-                        "validators"
-                    ]
-                }
-            }
         }
     ],
     "components": {
