@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.26](https://github.com/radixdlt/open-rpc-spec/tree/1.0.26) (2021-07-20)
+
+**Merged pull requests:**
+
+- Add uptime fields to validator component [\#21](https://github.com/radixdlt/open-rpc-spec/pull/21)
+
 ## [1.0.25](https://github.com/radixdlt/open-rpc-spec/tree/1.0.25) (2021-07-20)
 
 ## [1.0.24](https://github.com/radixdlt/open-rpc-spec/tree/1.0.24) (2021-07-20)
