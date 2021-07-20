@@ -187,6 +187,13 @@
                     "schema": {
                         "type": "string"
                     }
+                },
+                {
+                    "name": "verbose",
+                    "required": false,
+                    "schema": {
+                        "type": "boolean"
+                    }
                 }
             ],
             "result": {
