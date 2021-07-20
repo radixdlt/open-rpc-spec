@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.27](https://github.com/radixdlt/open-rpc-spec/tree/1.0.27) (2021-07-20)
+
+**Merged pull requests:**
+
+- Add `verbose`  flag to transaction\_history method [\#22](https://github.com/radixdlt/open-rpc-spec/pull/22)
+
 ## [1.0.26](https://github.com/radixdlt/open-rpc-spec/tree/1.0.26) (2021-07-20)
 
 **Merged pull requests:**
