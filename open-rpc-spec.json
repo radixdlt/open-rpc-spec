@@ -574,7 +574,10 @@
                                     "registered": true,
                                     "totalDelegatedStake": "100",
                                     "ownerDelegation": "100",
-                                    "isExternalStakeAccepted": true
+                                    "isExternalStakeAccepted": true,
+                                    "proposalsMissed": 0,
+                                    "proposalsCompleted": 10,
+                                    "uptimePercentage": "100.00"
                                 }
                             ]
                         }
@@ -621,7 +624,10 @@
                             "validatorFee": "100",
                             "registered": true,
                             "ownerDelegation": "100",
-                            "isExternalStakeAccepted": true
+                            "isExternalStakeAccepted": true,
+                            "proposalsMissed": 0,
+                            "proposalsCompleted": 10,
+                            "uptimePercentage": "100.00"
                         }
                     }
                 }
@@ -2633,6 +2639,15 @@
                     },
                     "isExternalStakeAccepted": {
                         "type": "boolean"
+                    },
+                    "proposalsCompleted": {
+                        "type": "number"
+                    },
+                    "proposalsMissed": {
+                        "type": "number"
+                    },
+                    "uptimePercentage": {
+                        "type": "string"
                     }
                 },
                 "additionalProperties": false,
