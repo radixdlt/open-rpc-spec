@@ -616,6 +616,8 @@
                             "name": "Cerby",
                             "infoURL": "http://www.radixdlt.com",
                             "totalDelegatedStake": "100",
+                            "validatorFee": 100,
+                            "registered": true,
                             "ownerDelegation": "100",
                             "isExternalStakeAccepted": true
                         }
