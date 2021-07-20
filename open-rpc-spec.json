@@ -570,6 +570,8 @@
                                     "ownerAddress": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
                                     "name": "Cerby",
                                     "infoURL": "http://www.radixdlt.com",
+                                    "validatorFee": "100",
+                                    "registered": true,
                                     "totalDelegatedStake": "100",
                                     "ownerDelegation": "100",
                                     "isExternalStakeAccepted": true
@@ -616,7 +618,7 @@
                             "name": "Cerby",
                             "infoURL": "http://www.radixdlt.com",
                             "totalDelegatedStake": "100",
-                            "validatorFee": 100,
+                            "validatorFee": "100",
                             "registered": true,
                             "ownerDelegation": "100",
                             "isExternalStakeAccepted": true
