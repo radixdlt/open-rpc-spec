@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.29](https://github.com/radixdlt/open-rpc-spec/tree/1.0.29) (2021-07-21)
+
+**Merged pull requests:**
+
+- Add radix engine configuration api [\#24](https://github.com/radixdlt/open-rpc-spec/pull/24)
+
+## [1.0.28](https://github.com/radixdlt/open-rpc-spec/tree/1.0.28) (2021-07-21)
+
+**Merged pull requests:**
+
+- Feature/update validation api [\#23](https://github.com/radixdlt/open-rpc-spec/pull/23)
+
 ## [1.0.27](https://github.com/radixdlt/open-rpc-spec/tree/1.0.27) (2021-07-20)
 
 **Merged pull requests:**
