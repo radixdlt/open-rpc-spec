@@ -1700,20 +1700,60 @@
                             "name": {
                                 "type": "string"
                             },
+                            "epoch": {
+                                "type": "number"
+                            },
                             "version": {
                                 "type": "string"
                             },
-                            "maxRounds": {
-                                "type": "integer"
+                            "config": {
+                                "type": "object",
+                                "properties": {
+                                    "maxValidators": {
+                                        "type": "integer"
+                                    },
+                                    "maxTransactionsPerRound": {
+                                        "type": "integer"
+                                    },
+                                    "maxRoundsPerEpoch": {
+                                        "type": "integer"
+                                    },
+                                    "minimumCompletedProposalsPercentage": {
+                                        "type": "integer"
+                                    },
+                                    "unstakingDelayEpochLength": {
+                                        "type": "integer"
+                                    },
+                                    "feeTable": {
+                                        "type": "object",
+                                        "properties": {
+                                            "perByteFee": {
+                                                "$ref": "#/components/schemas/amount"
+                                            },
+                                            "perUpSubstateFee": {
+                                                "type": "object"
+                                            }
+                                        }
+                                    }
+                                }
                             },
-                            "maxSigsPerRound": {
-                                "type": "integer"
+                            "validatorFeeIncreaseDebouncerEpochLength": {
+                                "type": "number"
                             },
-                            "maxValidators": {
-                                "type": "integer"
+                            "minimumStake": {
+                                "$ref": "#/components/schemas/amount"
                             },
-                            "epoch": {
-                                "type": "integer"
+                            "reservedSymbols": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "maxTransactionSize": {
+                                "type": "number"
+                            },
+                            "rewardsPerProposal": {
+                                "$ref": "#/components/schemas/amount"
                             }
                         }
                     }
