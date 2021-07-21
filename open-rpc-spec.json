@@ -2118,41 +2118,104 @@
                         "address": {
                             "$ref": "#/components/schemas/validatorAddress"
                         },
+                        "allowDelegation": {
+                            "type": "boolean"
+                        },
                         "name": {
                             "type": "string"
                         },
-                        "ulr": {
+                        "url": {
                             "type": "string"
                         },
-                        "registered": {
-                            "type": "boolean"
-                        },
-                        "totalStake": {
-                            "$ref": "#/components/schemas/amount"
-                        },
-                        "stakes": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "amount": {
-                                        "$ref": "#/components/schemas/amount"
-                                    },
-                                    "delegator": {
-                                        "$ref": "#/components/schemas/address"
+                        "epochInfo": {
+                            "type": "object",
+                            "properties": {
+                                "current": {
+                                    "type": "object",
+                                    "properties": {
+                                        "registered": {
+                                            "type": "boolean"
+                                        },
+                                        "owner": {
+                                            "$ref": "#/components/schemas/address"
+                                        },
+                                        "validatorFee": {
+                                            "type": "string"
+                                        },
+                                        "stakes": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "amount": {
+                                                        "$ref": "#/components/schemas/amount"
+                                                    },
+                                                    "delegator": {
+                                                        "$ref": "#/components/schemas/address"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "totalStake": {
+                                            "$ref": "#/components/schemas/amount"
+                                        },
+                                        "proposalsCompleted": {
+                                            "type": "number"
+                                        },
+                                        "proposalsMissed": {
+                                            "type": "number"
+                                        },
+                                        "uptimePercentage": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "updates": {
+                                    "type": "object",
+                                    "properties": {
+                                        "validatorFee": {
+                                            "type": "string"
+                                        },
+                                        "registered": {
+                                            "type": "boolean"
+                                        },
+                                        "owner": {
+                                            "$ref": "#/components/schemas/address"
+                                        },
+                                        "stakes": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "amount": {
+                                                        "$ref": "#/components/schemas/amount"
+                                                    },
+                                                    "delegator": {
+                                                        "$ref": "#/components/schemas/address"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "unstakes": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "amount": {
+                                                        "$ref": "#/components/schemas/amount"
+                                                    },
+                                                    "delegator": {
+                                                        "$ref": "#/components/schemas/address"
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
-                        },
-                        "owner": {
-                            "$ref": "#/components/schemas/address"
-                        },
-                        "validatorFee": {
-                            "type": "number"
-                        },
-                        "allowDelegation": {
-                            "type": "boolean"
                         }
+
+
                     },
                     "additionalProperties": false,
                     "required": [
@@ -2169,7 +2232,7 @@
         },
         {
             "name": "validation.get_current_epoch_data",
-            "summary": "Get information about the current set of validators (NOT YET IMPLEMENTED, ALWAYS RETURNS EMPTY RESULT)",
+            "summary": "Get information about the current epoch's validator set",
             "servers": [
                 {
                     "name": "system",
@@ -2180,35 +2243,32 @@
             "result": {
                 "name": "currentEpochDataResult",
                 "schema": {
-                }
-            }
-        },
-        {
-            "name": "validation.get_next_epoch_data",
-            "summary": "Get information about the next set of validators",
-            "servers": [
-                {
-                    "name": "system",
-                    "url":"http://./validation"
-                }
-            ],
-            "params": [],
-            "result": {
-                "name": "nextEpochResult",
-                "schema": {
                     "type": "object",
                     "properties": {
                         "validators": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/components/schemas/validator"
+                                "type": "object",
+                                "properties": {
+                                    "address": {
+                                        "$ref": "#/components/schemas/validatorAddress"
+                                    },
+                                    "totalDelegatedStake": {
+                                        "$ref": "#/components/schemas/amount",
+                                    },
+                                    "proposalsMissed": {
+                                        "type": "number"
+                                    },
+                                    "proposalsCompleted": {
+                                        "type": "number"
+                                    },
+                                    "uptimePercentage": {
+                                        "type": "string"
+                                    }
+                                }
                             }
                         }
-                    },
-                    "additionalProperties": false,
-                    "required": [
-                        "validators"
-                    ]
+                    }
                 }
             }
         }
@@ -2639,7 +2699,7 @@
                         "$ref": "#/components/schemas/amount"
                     },
                     "validatorFee": {
-                        "type": "number"
+                        "type": "string"
                     },
                     "registered": {
                         "type": "boolean"
