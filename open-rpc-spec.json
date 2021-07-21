@@ -1921,7 +1921,7 @@
         },
         {
             "name": "networking.get_peers",
-            "summary": "Get information about known peer nodes",
+            "summary": "Get information about connected peer nodes",
             "servers": [
                 {
                     "name": "system",
@@ -1953,6 +1953,53 @@
                                                     "type": "integer"
                                                 },
                                                 "uri": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "networking.get_address_book",
+            "summary": "Get information about known peer nodes",
+            "servers": [
+                {
+                    "name": "system",
+                    "url":"http://./system"
+                }
+            ],
+            "params": [],
+            "result": {
+                "name": "getAddressBookResult",
+                "schema": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "address": {
+                                    "$ref": "#/components/schemas/nodeAddress"
+                                },
+                                "banned": "boolean",
+                                "knownAddresses": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "uri": {
+                                                    "type": "string"
+                                                },
+                                                "blacklisted": {
+                                                    "type": "boolean"
+                                                },
+                                                "lastSuccessfulConnection": {
                                                     "type": "string"
                                                 }
                                             }
