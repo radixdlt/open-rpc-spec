@@ -1986,7 +1986,9 @@
                                 "address": {
                                     "$ref": "#/components/schemas/nodeAddress"
                                 },
-                                "banned": "boolean",
+                                "banned": {
+                                    "type": "boolean"
+                                },
                                 "knownAddresses": {
                                     "type": "array",
                                     "items": [
