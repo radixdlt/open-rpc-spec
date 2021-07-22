@@ -2341,7 +2341,7 @@
                                         "$ref": "#/components/schemas/validatorAddress"
                                     },
                                     "totalDelegatedStake": {
-                                        "$ref": "#/components/schemas/amount",
+                                        "$ref": "#/components/schemas/amount"
                                     },
                                     "proposalsMissed": {
                                         "type": "number"
