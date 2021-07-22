@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.30](https://github.com/radixdlt/open-rpc-spec/tree/1.0.30) (2021-07-22)
+
+**Merged pull requests:**
+
+- Add doc for networking.get\_address\_book [\#25](https://github.com/radixdlt/open-rpc-spec/pull/25)
+
 ## [1.0.29](https://github.com/radixdlt/open-rpc-spec/tree/1.0.29) (2021-07-21)
 
 **Merged pull requests:**
@@ -73,6 +79,7 @@
 **Merged pull requests:**
 
 - Message format [\#15](https://github.com/radixdlt/open-rpc-spec/pull/15)
+- Reorder construction.build\_transaction parameters [\#10](https://github.com/radixdlt/open-rpc-spec/pull/10)
 
 ## [1.0.14](https://github.com/radixdlt/open-rpc-spec/tree/1.0.14) (2021-06-24)
 
@@ -97,10 +104,6 @@
 ## [1.0.10](https://github.com/radixdlt/open-rpc-spec/tree/1.0.10) (2021-06-22)
 
 ## [1.0.9](https://github.com/radixdlt/open-rpc-spec/tree/1.0.9) (2021-06-22)
-
-**Merged pull requests:**
-
-- Reorder construction.build\_transaction parameters [\#10](https://github.com/radixdlt/open-rpc-spec/pull/10)
 
 ## [1.0.8](https://github.com/radixdlt/open-rpc-spec/tree/1.0.8) (2021-06-22)
 
