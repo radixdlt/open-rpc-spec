@@ -2,6 +2,8 @@
 
 ## [1.0.32](https://github.com/radixdlt/open-rpc-spec/tree/1.0.32) (2021-07-22)
 
+## [1.0.33](https://github.com/radixdlt/open-rpc-spec/tree/1.0.33) (2021-07-22)
+
 **Merged pull requests:**
 
 - fix: Trailing Comma [\#26](https://github.com/radixdlt/open-rpc-spec/pull/26)
