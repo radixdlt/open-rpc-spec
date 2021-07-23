@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.34](https://github.com/radixdlt/open-rpc-spec/tree/1.0.34) (2021-07-23)
+
+**Merged pull requests:**
+
+- add nodeAddress to network config [\#27](https://github.com/radixdlt/open-rpc-spec/pull/27)
+
 ## [1.0.32](https://github.com/radixdlt/open-rpc-spec/tree/1.0.32) (2021-07-22)
 
 ## [1.0.33](https://github.com/radixdlt/open-rpc-spec/tree/1.0.33) (2021-07-22)
@@ -138,10 +144,6 @@
 
 ## [1.0.5](https://github.com/radixdlt/open-rpc-spec/tree/1.0.5) (2021-06-15)
 
-**Merged pull requests:**
-
-- Finalize specification for v2.0 [\#6](https://github.com/radixdlt/open-rpc-spec/pull/6)
-
 ## [1.0.4](https://github.com/radixdlt/open-rpc-spec/tree/1.0.4) (2021-06-04)
 
 **Merged pull requests:**
@@ -152,6 +154,7 @@
 
 **Merged pull requests:**
 
+- Finalize specification for v2.0 [\#6](https://github.com/radixdlt/open-rpc-spec/pull/6)
 - Changelog order [\#4](https://github.com/radixdlt/open-rpc-spec/pull/4)
 
 ## [1.0.2](https://github.com/radixdlt/open-rpc-spec/tree/1.0.2) (2021-05-20)
