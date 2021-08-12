@@ -2004,7 +2004,7 @@
                                                 "blacklisted": {
                                                     "type": "boolean"
                                                 },
-                                                "lastSuccessfulConnection": {
+                                                "latestConnectionStatus": {
                                                     "type": "string"
                                                 }
                                             }
