@@ -4,7 +4,6 @@
         "title": "Radix Core JSON-RPC API",
         "version": "2.0.0"
     },
-
     "methods": [
         {
             "name": "tokens.get_native_token",
@@ -12,7 +11,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [],
@@ -46,7 +45,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [
@@ -88,7 +87,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [
@@ -162,7 +161,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [
@@ -248,7 +247,7 @@
                                         },
                                         {
                                             "type": "UnstakeTokens",
-                                            "from": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
+                                            "to": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
                                             "validator": "vb1qvx0emaq0tua6md7wu9c047mm5krrwnlfl8c7ws3jm2s9uf4vxcyvrwrazy",
                                             "amount": "100"
                                         },
@@ -269,7 +268,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [
@@ -327,7 +326,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [
@@ -395,7 +394,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [
@@ -440,7 +439,7 @@
                                 },
                                 {
                                     "type": "UnstakeTokens",
-                                    "from": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
+                                    "to": "brx1qspqljn9rg7x97s3rcvyzal2uxr5q22d9xn8nc4rpq8vq08kg4ch8yqhs9dq6",
                                     "validator": "vb1qvx0emaq0tua6md7wu9c047mm5krrwnlfl8c7ws3jm2s9uf4vxcyvrwrazy",
                                     "amount": "100"
                                 },
@@ -459,7 +458,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [
@@ -521,7 +520,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [
@@ -598,7 +597,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [
@@ -646,7 +645,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [],
@@ -672,7 +671,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [],
@@ -699,7 +698,7 @@
             "servers": [
                 {
                     "name": "archive",
-                    "url":"http://./archive"
+                    "url": "http://./archive"
                 }
             ],
             "params": [],
@@ -726,7 +725,7 @@
             "servers": [
                 {
                     "name": "construction",
-                    "url":"http://./construction"
+                    "url": "http://./construction"
                 }
             ],
             "params": [
@@ -775,6 +774,29 @@
                                 },
                                 "hashOfBlobToSign": {
                                     "type": "string"
+                                },
+                                "notifications": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string"
+                                                },
+                                                "symbol": {
+                                                    "type": "string"
+                                                },
+                                                "rri": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "additionalProperties": false,
+                                            "required": [
+                                                "type"
+                                            ]
+                                        }
+                                    ]
                                 }
                             },
                             "additionalProperties": false,
@@ -795,86 +817,6 @@
                 }
             },
             "errors": [
-                {
-                    "code": 1300,
-                    "message": "MALFORMED_TX"
-                },
-                {
-                    "code": 1301,
-                    "message": "INSUFFICIENT_FUNDS"
-                },
-                {
-                    "code": 1302,
-                    "message": "NOT_PERMITTED"
-                },
-                {
-                    "code": 1303,
-                    "message": "ADDRESS_IS_MISSING"
-                },
-                {
-                    "code": 1304,
-                    "message": "NOT_A_SYSTEM"
-                },
-                {
-                    "code": 1305,
-                    "message": "RRI_NOT_AVAILABLE"
-                },
-                {
-                    "code": 1306,
-                    "message": "ALREADY_A_VALIDATOR"
-                },
-                {
-                    "code": 1307,
-                    "message": "INVALID_STATE"
-                },
-                {
-                    "code": 1308,
-                    "message": "NO_SYSTEM_PARTICLE"
-                },
-                {
-                    "code": 1309,
-                    "message": "NOT_ENOUGH_STAKED"
-                },
-                {
-                    "code": 1310,
-                    "message": "NEXT_VIEW_LE_CURRENT"
-                },
-                {
-                    "code": 1311,
-                    "message": "ALREADY_UNREGISTERED"
-                },
-                {
-                    "code": 1312,
-                    "message": "INSUFFICIENT_FUNDS_FOR_FEE"
-                },
-                {
-                    "code": 1313,
-                    "message": "DIFFERENT_SOURCE_ADDRESSES"
-                },
-                {
-                    "code": 1314,
-                    "message": "INVALID_ACTION"
-                },
-                {
-                    "code": 1315,
-                    "message": "INVALID_ACTION_TYPE"
-                },
-                {
-                    "code": 1316,
-                    "message": "INVALID_RRI"
-                },
-                {
-                    "code": 1317,
-                    "message": "INVALID_ADDRESS"
-                },
-                {
-                    "code": 1318,
-                    "message": "INVALID_VALIDATOR_ADDRESS"
-                },
-                {
-                    "code": 1319,
-                    "message": "INVALID_AMOUNT"
-                }
             ]
         },
         {
@@ -883,7 +825,7 @@
             "servers": [
                 {
                     "name": "construction",
-                    "url":"http://./construction"
+                    "url": "http://./construction"
                 }
             ],
             "params": [
@@ -941,7 +883,7 @@
             "servers": [
                 {
                     "name": "construction",
-                    "url":"http://./construction"
+                    "url": "http://./construction"
                 }
             ],
             "params": [
@@ -976,10 +918,6 @@
                 }
             },
             "errors": [
-                {
-                    "code": 1500,
-                    "message": "SUBMISSION_FAILURE"
-                }
             ]
         },
         {
@@ -988,7 +926,7 @@
             "servers": [
                 {
                     "name": "account",
-                    "url":"http://./account"
+                    "url": "http://./account"
                 }
             ],
             "params": [],
@@ -1062,7 +1000,7 @@
             "servers": [
                 {
                     "name": "account",
-                    "url":"http://./account"
+                    "url": "http://./account"
                 }
             ],
             "params": [
@@ -1107,90 +1045,6 @@
                 }
             },
             "errors": [
-                {
-                    "code": 1300,
-                    "message": "MALFORMED_TX"
-                },
-                {
-                    "code": 1301,
-                    "message": "INSUFFICIENT_FUNDS"
-                },
-                {
-                    "code": 1302,
-                    "message": "NOT_PERMITTED"
-                },
-                {
-                    "code": 1303,
-                    "message": "ADDRESS_IS_MISSING"
-                },
-                {
-                    "code": 1304,
-                    "message": "NOT_A_SYSTEM"
-                },
-                {
-                    "code": 1305,
-                    "message": "RRI_NOT_AVAILABLE"
-                },
-                {
-                    "code": 1306,
-                    "message": "ALREADY_A_VALIDATOR"
-                },
-                {
-                    "code": 1307,
-                    "message": "INVALID_STATE"
-                },
-                {
-                    "code": 1308,
-                    "message": "NO_SYSTEM_PARTICLE"
-                },
-                {
-                    "code": 1309,
-                    "message": "NOT_ENOUGH_STAKED"
-                },
-                {
-                    "code": 1310,
-                    "message": "NEXT_VIEW_LE_CURRENT"
-                },
-                {
-                    "code": 1311,
-                    "message": "ALREADY_UNREGISTERED"
-                },
-                {
-                    "code": 1312,
-                    "message": "INSUFFICIENT_FUNDS_FOR_FEE"
-                },
-                {
-                    "code": 1313,
-                    "message": "DIFFERENT_SOURCE_ADDRESSES"
-                },
-                {
-                    "code": 1314,
-                    "message": "INVALID_ACTION"
-                },
-                {
-                    "code": 1315,
-                    "message": "INVALID_ACTION_TYPE"
-                },
-                {
-                    "code": 1316,
-                    "message": "INVALID_RRI"
-                },
-                {
-                    "code": 1317,
-                    "message": "INVALID_ADDRESS"
-                },
-                {
-                    "code": 1318,
-                    "message": "INVALID_VALIDATOR_ADDRESS"
-                },
-                {
-                    "code": 1319,
-                    "message": "INVALID_AMOUNT"
-                },
-                {
-                    "code": 1500,
-                    "message": "SUBMISSION_FAILURE"
-                }
             ]
         },
         {
@@ -1199,7 +1053,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1230,7 +1084,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1401,7 +1255,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1426,7 +1280,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1495,7 +1349,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1520,7 +1374,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1568,7 +1422,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1627,7 +1481,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1686,7 +1540,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1723,6 +1577,9 @@
                                     },
                                     "unstakingDelayEpochLength": {
                                         "type": "integer"
+                                    },
+                                    "tokenSymbolPattern": {
+                                        "type": "string"
                                     },
                                     "feeTable": {
                                         "type": "object",
@@ -1766,7 +1623,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1794,7 +1651,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1828,7 +1685,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1865,7 +1722,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1877,31 +1734,31 @@
                         "defaultPort": {
                             "type": "integer"
                         },
-                        "discoveryInterval":{
+                        "discoveryInterval": {
                             "type": "integer"
                         },
                         "listenAddress": {
                             "type": "string"
                         },
-                        "listenPort":{
+                        "listenPort": {
                             "type": "integer"
                         },
                         "broadcastPort": {
                             "type": "integer"
                         },
-                        "peerConnectionTimeout":{
+                        "peerConnectionTimeout": {
                             "type": "integer"
                         },
                         "maxInboundChannels": {
                             "type": "integer"
                         },
-                        "maxOutboundChannels":{
+                        "maxOutboundChannels": {
                             "type": "integer"
                         },
                         "channelBufferSize": {
                             "type": "integer"
                         },
-                        "peerLivenessCheckInterval":{
+                        "peerLivenessCheckInterval": {
                             "type": "integer"
                         },
                         "pingTimeout": {
@@ -1928,7 +1785,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -1974,7 +1831,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -2023,7 +1880,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -2114,7 +1971,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./system"
+                    "url": "http://./system"
                 }
             ],
             "params": [],
@@ -2198,7 +2055,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./validation"
+                    "url": "http://./validation"
                 }
             ],
             "params": [],
@@ -2306,8 +2163,6 @@
                                 }
                             }
                         }
-
-
                     },
                     "additionalProperties": false,
                     "required": [
@@ -2328,7 +2183,7 @@
             "servers": [
                 {
                     "name": "system",
-                    "url":"http://./validation"
+                    "url": "http://./validation"
                 }
             ],
             "params": [],
@@ -2435,7 +2290,7 @@
                                     "UnstakeTokens"
                                 ]
                             },
-                            "from": {
+                            "to": {
                                 "$ref": "#/components/schemas/address"
                             },
                             "validator": {
@@ -2447,7 +2302,7 @@
                         },
                         "required": [
                             "type",
-                            "from",
+                            "to",
                             "validator",
                             "amount"
                         ],
