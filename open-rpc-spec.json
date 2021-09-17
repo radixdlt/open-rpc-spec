@@ -208,11 +208,15 @@
                             "items": {
                                 "$ref": "#/components/schemas/transaction"
                             }
+                        },
+                        "totalCount": {
+                            "type": "number"
                         }
                     },
                     "required": [
                         "cursor",
-                        "transactions"
+                        "transactions",
+                        "totalCount"
                     ],
                     "additionalProperties": false
                 }
