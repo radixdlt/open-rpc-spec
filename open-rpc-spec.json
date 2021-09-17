@@ -214,7 +214,6 @@
                         }
                     },
                     "required": [
-                        "cursor",
                         "transactions",
                         "totalCount"
                     ],
