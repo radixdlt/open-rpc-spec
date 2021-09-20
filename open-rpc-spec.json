@@ -2,7 +2,7 @@
     "openrpc": "1.0.0-rc1",
     "info": {
         "title": "Radix Core JSON-RPC API",
-        "version": "2.0.0"
+        "version": "3.0.0"
     },
     "methods": [
         {
@@ -820,6 +820,278 @@
                 }
             },
             "errors": [
+                {
+                    "code": -1000,
+                    "message": "GENERAL"
+                },
+                {
+                    "code": -1001,
+                    "message": "UNKNOWN"
+                },
+                {
+                    "code": -1002,
+                    "message": "ASYNC_PROCESSING_ERROR"
+                },
+                {
+                    "code": -1003,
+                    "message": "ERROR_CALL_DATA"
+                },
+                {
+                    "code": -1004,
+                    "message": "ERROR_CONSTRAINT_VIOLATION"
+                },
+                {
+                    "code": -1005,
+                    "message": "ERROR_DEFAULT_SYSTEM_LOAN"
+                },
+                {
+                    "code": -1006,
+                    "message": "ERROR_DELEGATION_NOT_ALLOWED"
+                },
+                {
+                    "code": -1007,
+                    "message": "ERROR_INVALID_HASHED_KEY"
+                },
+                {
+                    "code": -1008,
+                    "message": "ERROR_INVALID_PERMISSION"
+                },
+                {
+                    "code": -1009,
+                    "message": "ERROR_INVALID_RESOURCE"
+                },
+                {
+                    "code": -1010,
+                    "message": "ERROR_INVALID_VIRTUAL_SUBSTATE"
+                },
+                {
+                    "code": -1011,
+                    "message": "ERROR_LOCAL_SUBSTATE_NOT_FOUND"
+                },
+                {
+                    "code": -1012,
+                    "message": "ERROR_MINIMUM_STAKE"
+                },
+                {
+                    "code": -1013,
+                    "message": "ERROR_MISMATCH"
+                },
+                {
+                    "code": -1014,
+                    "message": "ERROR_MISSING_PROCEDURE"
+                },
+                {
+                    "code": -1015,
+                    "message": "ERROR_MULTIPLE_FEE_RESERVE_DEPOSIT"
+                },
+                {
+                    "code": -1016,
+                    "message": "ERROR_NOT_AUTHORIZED"
+                },
+                {
+                    "code": -1017,
+                    "message": "ERROR_NOT_A_RESOURCE"
+                },
+                {
+                    "code": -1018,
+                    "message": "ERROR_NOT_ENOUGH_RESERVE"
+                },
+                {
+                    "code": -1019,
+                    "message": "ERROR_NOT_ENOUGH_RESOURCES"
+                },
+                {
+                    "code": -1020,
+                    "message": "ERROR_PROCEDURE"
+                },
+                {
+                    "code": -1021,
+                    "message": "ERROR_RESERVED_SYMBOL"
+                },
+                {
+                    "code": -1022,
+                    "message": "ERROR_RESERVE_NOT_EMPTY"
+                },
+                {
+                    "code": -1023,
+                    "message": "ERROR_RESOURCE_ALLOCATION_AND_DESTRUCTION"
+                },
+                {
+                    "code": -1024,
+                    "message": "ERROR_SIGNED_SYSTEM"
+                },
+                {
+                    "code": -1025,
+                    "message": "ERROR_SUBSTATE_NOT_FOUND"
+                },
+                {
+                    "code": -1026,
+                    "message": "ERROR_VIRTUAL_PARENT_STATE_DOES_NOT_EXIST"
+                },
+                {
+                    "code": -1027,
+                    "message": "ERROR_VIRTUAL_SUBSTATE_ALREADY_DOWN"
+                },
+                {
+                    "code": -1028,
+                    "message": "INTERRUPTED_OPERATION"
+                },
+                {
+                    "code": -1029,
+                    "message": "INVALID_ACCOUNT_ADDRESS"
+                },
+                {
+                    "code": -1030,
+                    "message": "INVALID_ACTION_DATA"
+                },
+                {
+                    "code": -1031,
+                    "message": "INVALID_AID_LENGTH"
+                },
+                {
+                    "code": -1032,
+                    "message": "INVALID_AID_STRING"
+                },
+                {
+                    "code": -1033,
+                    "message": "INVALID_PAGE_SIZE"
+                },
+                {
+                    "code": -1034,
+                    "message": "INVALID_PUBLIC_KEY"
+                },
+                {
+                    "code": -1035,
+                    "message": "INVALID_RESOURCE_ADDRESS"
+                },
+                {
+                    "code": -1036,
+                    "message": "INVALID_SIGNATURE_DER"
+                },
+                {
+                    "code": -1037,
+                    "message": "INVALID_TX_ID"
+                },
+                {
+                    "code": -1038,
+                    "message": "INVALID_VALIDATOR_ADDRESS"
+                },
+                {
+                    "code": -1039,
+                    "message": "INVALID_VALUE_OUT_OF_RANGE"
+                },
+                {
+                    "code": -1040,
+                    "message": "INVALID_VALUE_TYPE"
+                },
+                {
+                    "code": -1041,
+                    "message": "IO_ERROR"
+                },
+                {
+                    "code": -1042,
+                    "message": "MISSING_ACTION_FIELD"
+                },
+                {
+                    "code": -1043,
+                    "message": "MISSING_BASE_URL"
+                },
+                {
+                    "code": -1044,
+                    "message": "MISSING_KEYSTORE_FILE"
+                },
+                {
+                    "code": -1045,
+                    "message": "MISSING_PARAMETER"
+                },
+                {
+                    "code": -1046,
+                    "message": "MUST_MATCH_TX_ID"
+                },
+                {
+                    "code": -1047,
+                    "message": "SSL_ALGORITHM_ERROR"
+                },
+                {
+                    "code": -1048,
+                    "message": "SSL_GENERAL_ERROR"
+                },
+                {
+                    "code": -1049,
+                    "message": "SSL_KEY_ERROR"
+                },
+                {
+                    "code": -1050,
+                    "message": "UNABLE_TO_ADD_TO_MEMPOOL"
+                },
+                {
+                    "code": -1051,
+                    "message": "UNABLE_TO_DESERIALIZE"
+                },
+                {
+                    "code": -1052,
+                    "message": "UNABLE_TO_LOAD_KEYSTORE"
+                },
+                {
+                    "code": -1053,
+                    "message": "UNABLE_TO_MAKE_SIGNATURE_RECOVERABLE"
+                },
+                {
+                    "code": -1054,
+                    "message": "UNABLE_TO_PARSE_BOOLEAN"
+                },
+                {
+                    "code": -1055,
+                    "message": "UNABLE_TO_PARSE_COMMAND_LINE"
+                },
+                {
+                    "code": -1056,
+                    "message": "UNABLE_TO_PARSE_FLOAT"
+                },
+                {
+                    "code": -1057,
+                    "message": "UNABLE_TO_PARSE_HEX_STRING"
+                },
+                {
+                    "code": -1058,
+                    "message": "UNABLE_TO_PARSE_INT"
+                },
+                {
+                    "code": -1059,
+                    "message": "UNABLE_TO_PARSE_UINT"
+                },
+                {
+                    "code": -1060,
+                    "message": "UNABLE_TO_PREPARE_TX"
+                },
+                {
+                    "code": -1061,
+                    "message": "UNABLE_TO_SERIALIZE"
+                },
+                {
+                    "code": -1062,
+                    "message": "UNABLE_TO_SUBMIT_TX"
+                },
+                {
+                    "code": -1063,
+                    "message": "UNKNOWN_ACTION"
+                },
+                {
+                    "code": -1064,
+                    "message": "UNKNOWN_PARTICLE"
+                },
+                {
+                    "code": -1065,
+                    "message": "UNKNOWN_RRI"
+                },
+                {
+                    "code": -1066,
+                    "message": "UNKNOWN_TX_ID"
+                },
+                {
+                    "code": -1067,
+                    "message": "UNSUPPORTED_ACTION"
+                }
             ]
         },
         {
