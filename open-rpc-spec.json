@@ -821,18 +821,6 @@
             },
             "errors": [
                 {
-                    "code": -1000,
-                    "message": "GENERAL"
-                },
-                {
-                    "code": -1001,
-                    "message": "UNKNOWN"
-                },
-                {
-                    "code": -1002,
-                    "message": "ASYNC_PROCESSING_ERROR"
-                },
-                {
                     "code": -1003,
                     "message": "ERROR_CALL_DATA"
                 },
@@ -993,32 +981,12 @@
                     "message": "MISSING_ACTION_FIELD"
                 },
                 {
-                    "code": -1043,
-                    "message": "MISSING_BASE_URL"
-                },
-                {
-                    "code": -1044,
-                    "message": "MISSING_KEYSTORE_FILE"
-                },
-                {
                     "code": -1045,
                     "message": "MISSING_PARAMETER"
                 },
                 {
                     "code": -1046,
                     "message": "MUST_MATCH_TX_ID"
-                },
-                {
-                    "code": -1047,
-                    "message": "SSL_ALGORITHM_ERROR"
-                },
-                {
-                    "code": -1048,
-                    "message": "SSL_GENERAL_ERROR"
-                },
-                {
-                    "code": -1049,
-                    "message": "SSL_KEY_ERROR"
                 },
                 {
                     "code": -1050,
