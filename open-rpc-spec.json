@@ -821,244 +821,264 @@
             },
             "errors": [
                 {
-                    "code": -1003,
-                    "message": "ERROR_CALL_DATA"
+                    "code": -1100,
+                    "message": "ERROR_CALL_DATA",
+                    "data": "Submitted transaction resulted to invalid RadixEngine procedure call"
                 },
                 {
-                    "code": -1004,
-                    "message": "ERROR_CONSTRAINT_VIOLATION"
+                    "code": -1101,
+                    "message": "ERROR_CONSTRAINT_VIOLATION",
+                    "data": "Submitted transaction resulted to constraint machine error"
                 },
                 {
-                    "code": -1005,
-                    "message": "ERROR_DEFAULT_SYSTEM_LOAN"
+                    "code": -1102,
+                    "message": "ERROR_DEFAULT_SYSTEM_LOAN",
+                    "data": "Reserve fee deposit not enough to cover basic txn fee"
                 },
                 {
-                    "code": -1006,
-                    "message": "ERROR_DELEGATION_NOT_ALLOWED"
+                    "code": -1103,
+                    "message": "ERROR_DELEGATION_NOT_ALLOWED",
+                    "data": "Delegation not allowed by owner."
                 },
                 {
-                    "code": -1007,
-                    "message": "ERROR_INVALID_HASHED_KEY"
+                    "code": -1104,
+                    "message": "ERROR_INVALID_HASHED_KEY",
+                    "data": "Hashed key does not match expected key or has invalid type"
                 },
                 {
-                    "code": -1008,
-                    "message": "ERROR_INVALID_PERMISSION"
+                    "code": -1105,
+                    "message": "ERROR_INVALID_PERMISSION",
+                    "data": "Mismatch between expected and actual procedure permissions"
                 },
                 {
-                    "code": -1009,
-                    "message": "ERROR_INVALID_RESOURCE"
+                    "code": -1106,
+                    "message": "ERROR_INVALID_RESOURCE",
+                    "data": "Attempt to withdraw or deposit resource which does not match existing resource"
                 },
                 {
-                    "code": -1010,
-                    "message": "ERROR_INVALID_VIRTUAL_SUBSTATE"
+                    "code": -1107,
+                    "message": "ERROR_INVALID_VIRTUAL_SUBSTATE",
+                    "data": "Invalid substate reference during transaction processing"
                 },
                 {
-                    "code": -1011,
-                    "message": "ERROR_LOCAL_SUBSTATE_NOT_FOUND"
+                    "code": -1108,
+                    "message": "ERROR_LOCAL_SUBSTATE_NOT_FOUND",
+                    "data": "Invalid reference to local substate during transaction processing"
                 },
                 {
-                    "code": -1012,
-                    "message": "ERROR_MINIMUM_STAKE"
+                    "code": -1109,
+                    "message": "ERROR_MINIMUM_STAKE",
+                    "data": "Attempt to stake amount below the minimum"
                 },
                 {
-                    "code": -1013,
-                    "message": "ERROR_MISMATCH"
+                    "code": -1110,
+                    "message": "ERROR_MISMATCH",
+                    "data": "Mismatch between expected and actual particles during transaction processing"
                 },
                 {
-                    "code": -1014,
-                    "message": "ERROR_MISSING_PROCEDURE"
+                    "code": -1111,
+                    "message": "ERROR_MISSING_PROCEDURE",
+                    "data": "Unknown or missing procedure is referenced during transaction processing"
                 },
                 {
-                    "code": -1015,
-                    "message": "ERROR_MULTIPLE_FEE_RESERVE_DEPOSIT"
+                    "code": -1112,
+                    "message": "ERROR_MULTIPLE_FEE_RESERVE_DEPOSIT",
+                    "data": "Attempt to make more than one fee reserve deposit during transaction processing"
                 },
                 {
-                    "code": -1016,
-                    "message": "ERROR_NOT_AUTHORIZED"
+                    "code": -1113,
+                    "message": "ERROR_NOT_AUTHORIZED",
+                    "data": "Provided key is not authorized to perform requested action"
                 },
                 {
-                    "code": -1017,
-                    "message": "ERROR_NOT_A_RESOURCE"
+                    "code": -1114,
+                    "message": "ERROR_NOT_A_RESOURCE",
+                    "data": "Provided address does not represent a resource"
                 },
                 {
-                    "code": -1018,
-                    "message": "ERROR_NOT_ENOUGH_RESERVE"
+                    "code": -1115,
+                    "message": "ERROR_NOT_ENOUGH_RESERVE",
+                    "data": "Attempt to charge more fee than exists in fee reserve"
                 },
                 {
-                    "code": -1019,
-                    "message": "ERROR_NOT_ENOUGH_RESOURCES"
+                    "code": -1116,
+                    "message": "ERROR_NOT_ENOUGH_RESOURCES",
+                    "data": "Withdraw or unstake amount exceeds available funds"
                 },
                 {
-                    "code": -1020,
-                    "message": "ERROR_PROCEDURE"
+                    "code": -1117,
+                    "message": "ERROR_PROCEDURE",
+                    "data": "Error triggered during procedure execution during transaction processing"
                 },
                 {
-                    "code": -1021,
-                    "message": "ERROR_RESERVED_SYMBOL"
+                    "code": -1118,
+                    "message": "ERROR_RESERVED_SYMBOL",
+                    "data": "Attempt to use reserved symbol for new token"
                 },
                 {
-                    "code": -1022,
-                    "message": "ERROR_RESERVE_NOT_EMPTY"
+                    "code": -1119,
+                    "message": "ERROR_RESERVE_NOT_EMPTY",
+                    "data": "The fee reserve is not empty upon transaction execution"
                 },
                 {
-                    "code": -1023,
-                    "message": "ERROR_RESOURCE_ALLOCATION_AND_DESTRUCTION"
+                    "code": -1120,
+                    "message": "ERROR_RESOURCE_ALLOCATION_AND_DESTRUCTION",
+                    "data": "Allocation and destruction of resources not enabled."
                 },
                 {
-                    "code": -1024,
-                    "message": "ERROR_SIGNED_SYSTEM"
+                    "code": -1121,
+                    "message": "ERROR_SIGNED_SYSTEM",
+                    "data": "System updates should not be signed."
                 },
                 {
-                    "code": -1025,
-                    "message": "ERROR_SUBSTATE_NOT_FOUND"
+                    "code": -1122,
+                    "message": "ERROR_SUBSTATE_NOT_FOUND",
+                    "data": "Substate with specified ID is not found during transaction processing"
                 },
                 {
-                    "code": -1026,
-                    "message": "ERROR_VIRTUAL_PARENT_STATE_DOES_NOT_EXIST"
+                    "code": -1123,
+                    "message": "ERROR_VIRTUAL_PARENT_STATE_DOES_NOT_EXIST",
+                    "data": "Virtual parent substate with specified ID is not found during transaction processing"
                 },
                 {
-                    "code": -1027,
-                    "message": "ERROR_VIRTUAL_SUBSTATE_ALREADY_DOWN"
+                    "code": -1124,
+                    "message": "ERROR_VIRTUAL_SUBSTATE_ALREADY_DOWN",
+                    "data": "Virtual substate is already down and is not available"
                 },
                 {
-                    "code": -1028,
-                    "message": "INTERRUPTED_OPERATION"
+                    "code": -1200,
+                    "message": "INVALID_ACCOUNT_ADDRESS",
+                    "data": "Provided account address is invalid"
                 },
                 {
-                    "code": -1029,
-                    "message": "INVALID_ACCOUNT_ADDRESS"
+                    "code": -1201,
+                    "message": "INVALID_ACTION_DATA",
+                    "data": "Provided action data are invalid"
                 },
                 {
-                    "code": -1030,
-                    "message": "INVALID_ACTION_DATA"
+                    "code": -1202,
+                    "message": "INVALID_AID_LENGTH",
+                    "data": "Provided AID string has incorrect length"
                 },
                 {
-                    "code": -1031,
-                    "message": "INVALID_AID_LENGTH"
+                    "code": -1203,
+                    "message": "INVALID_AID_STRING",
+                    "data": "Provided AID string is 'null'"
                 },
                 {
-                    "code": -1032,
-                    "message": "INVALID_AID_STRING"
+                    "code": -1204,
+                    "message": "INVALID_PAGE_SIZE",
+                    "data": "Provided page size is incorrect"
                 },
                 {
-                    "code": -1033,
-                    "message": "INVALID_PAGE_SIZE"
+                    "code": -1205,
+                    "message": "INVALID_PUBLIC_KEY",
+                    "data": "Provided public key is invalid"
                 },
                 {
-                    "code": -1034,
-                    "message": "INVALID_PUBLIC_KEY"
+                    "code": -1206,
+                    "message": "INVALID_RESOURCE_ADDRESS",
+                    "data": "Provided resource address is invalid"
                 },
                 {
-                    "code": -1035,
-                    "message": "INVALID_RESOURCE_ADDRESS"
+                    "code": -1207,
+                    "message": "INVALID_SIGNATURE_DER",
+                    "data": "Provided signature DER is invalid"
                 },
                 {
-                    "code": -1036,
-                    "message": "INVALID_SIGNATURE_DER"
+                    "code": -1208,
+                    "message": "INVALID_TX_ID",
+                    "data": "Provided transaction ID is invalid"
                 },
                 {
-                    "code": -1037,
-                    "message": "INVALID_TX_ID"
+                    "code": -1209,
+                    "message": "INVALID_VALIDATOR_ADDRESS",
+                    "data": "Provided validator address is invalid"
                 },
                 {
-                    "code": -1038,
-                    "message": "INVALID_VALIDATOR_ADDRESS"
+                    "code": -1210,
+                    "message": "INVALID_VALUE_OUT_OF_RANGE",
+                    "data": "Provided parameter has value outside of allowed range"
                 },
                 {
-                    "code": -1039,
-                    "message": "INVALID_VALUE_OUT_OF_RANGE"
+                    "code": -1300,
+                    "message": "MISSING_ACTION_FIELD",
+                    "data": "Required field is not present in action definition"
                 },
                 {
-                    "code": -1040,
-                    "message": "INVALID_VALUE_TYPE"
+                    "code": -1301,
+                    "message": "MISSING_PARAMETER",
+                    "data": "The required parameter is missing"
                 },
                 {
-                    "code": -1041,
-                    "message": "IO_ERROR"
+                    "code": -1400,
+                    "message": "MUST_MATCH_TX_ID",
+                    "data": "Provided transaction ID does not match provided transaction"
                 },
                 {
-                    "code": -1042,
-                    "message": "MISSING_ACTION_FIELD"
+                    "code": -1500,
+                    "message": "UNABLE_TO_ADD_TO_MEMPOOL",
+                    "data": "Unable to add transaction to mempool: mempool is full"
                 },
                 {
-                    "code": -1045,
-                    "message": "MISSING_PARAMETER"
+                    "code": -1502,
+                    "message": "UNABLE_TO_MAKE_SIGNATURE_RECOVERABLE",
+                    "data": "Unable to convert signature to recoverable"
                 },
                 {
-                    "code": -1046,
-                    "message": "MUST_MATCH_TX_ID"
+                    "code": -1503,
+                    "message": "UNABLE_TO_PARSE_BOOLEAN",
+                    "data": "Unable to parse boolean value"
                 },
                 {
-                    "code": -1050,
-                    "message": "UNABLE_TO_ADD_TO_MEMPOOL"
+                    "code": -1504,
+                    "message": "UNABLE_TO_PARSE_FLOAT",
+                    "data": "Unable to parse float number"
                 },
                 {
-                    "code": -1051,
-                    "message": "UNABLE_TO_DESERIALIZE"
+                    "code": -1505,
+                    "message": "UNABLE_TO_PARSE_HEX_STRING",
+                    "data": "The provided value is not a correct hexadecimal string"
                 },
                 {
-                    "code": -1052,
-                    "message": "UNABLE_TO_LOAD_KEYSTORE"
+                    "code": -1506,
+                    "message": "UNABLE_TO_PARSE_INT",
+                    "data": "Unable to parse integer number"
                 },
                 {
-                    "code": -1053,
-                    "message": "UNABLE_TO_MAKE_SIGNATURE_RECOVERABLE"
+                    "code": -1507,
+                    "message": "UNABLE_TO_PARSE_UINT",
+                    "data": "Unable to parse unsigned integer number"
                 },
                 {
-                    "code": -1054,
-                    "message": "UNABLE_TO_PARSE_BOOLEAN"
+                    "code": -1508,
+                    "message": "UNABLE_TO_PREPARE_TX",
+                    "data": "Unable to prepare transaction"
                 },
                 {
-                    "code": -1055,
-                    "message": "UNABLE_TO_PARSE_COMMAND_LINE"
+                    "code": -1510,
+                    "message": "UNABLE_TO_SUBMIT_TX",
+                    "data": "Transaction submission failed"
                 },
                 {
-                    "code": -1056,
-                    "message": "UNABLE_TO_PARSE_FLOAT"
+                    "code": -1511,
+                    "message": "UNKNOWN_ACTION",
+                    "data": "Unknown action name"
                 },
                 {
-                    "code": -1057,
-                    "message": "UNABLE_TO_PARSE_HEX_STRING"
+                    "code": -1513,
+                    "message": "UNKNOWN_RRI",
+                    "data": "Unknown RRI"
                 },
                 {
-                    "code": -1058,
-                    "message": "UNABLE_TO_PARSE_INT"
+                    "code": -1514,
+                    "message": "UNKNOWN_TX_ID",
+                    "data": "Transaction with provided id is not found"
                 },
                 {
-                    "code": -1059,
-                    "message": "UNABLE_TO_PARSE_UINT"
-                },
-                {
-                    "code": -1060,
-                    "message": "UNABLE_TO_PREPARE_TX"
-                },
-                {
-                    "code": -1061,
-                    "message": "UNABLE_TO_SERIALIZE"
-                },
-                {
-                    "code": -1062,
-                    "message": "UNABLE_TO_SUBMIT_TX"
-                },
-                {
-                    "code": -1063,
-                    "message": "UNKNOWN_ACTION"
-                },
-                {
-                    "code": -1064,
-                    "message": "UNKNOWN_PARTICLE"
-                },
-                {
-                    "code": -1065,
-                    "message": "UNKNOWN_RRI"
-                },
-                {
-                    "code": -1066,
-                    "message": "UNKNOWN_TX_ID"
-                },
-                {
-                    "code": -1067,
-                    "message": "UNSUPPORTED_ACTION"
+                    "code": -1515,
+                    "message": "UNSUPPORTED_ACTION",
+                    "data": "Provided action type is not supported"
                 }
             ]
         },
